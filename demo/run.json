@@ -1,0 +1,4032 @@
+{
+  "url": "http://localhost:5173/",
+  "ranAt": "2026-09-18T11:11:29.952Z",
+  "loaded": {
+    "camPos": [
+      4.648,
+      1.521,
+      8.451
+    ],
+    "target": [
+      0,
+      0,
+      0
+    ],
+    "dist": 9.765,
+    "up": [
+      0,
+      1,
+      0
+    ],
+    "viewKey": null,
+    "selected": null,
+    "hovered": null,
+    "isolate": false,
+    "colorMode": "func",
+    "highlightGroup": null,
+    "peelDepth": 0,
+    "peelExpanded": [],
+    "clip": {
+      "enabled": false,
+      "value": 0,
+      "flip": false
+    },
+    "activePreset": null,
+    "layers": {
+      "skin": {
+        "visible": true,
+        "opacity": 0.3
+      },
+      "bone": {
+        "visible": true,
+        "opacity": 1
+      },
+      "muscle": {
+        "visible": true,
+        "opacity": 0.85
+      },
+      "nerve": {
+        "visible": true,
+        "opacity": 1
+      },
+      "acupoint": {
+        "visible": false,
+        "opacity": 1
+      },
+      "specimen": {
+        "visible": false,
+        "opacity": 1
+      }
+    },
+    "bones": 29,
+    "muscles": 35,
+    "nerves": 30,
+    "skins": 1,
+    "acupoints": 0,
+    "specimens": 0,
+    "total": 95,
+    "unmapped": 0,
+    "unmappedNames": [],
+    "helpers": 1,
+    "peelAlive": {
+      "1": 1,
+      "2": 24,
+      "3": 26,
+      "4": 15
+    },
+    "peelGone": {},
+    "opaque": 94,
+    "mOpacityMin": 0.85,
+    "mOpacityMax": 0.85,
+    "clippingMeshes": 95,
+    "planeConstant": 100000,
+    "planeNormal": [
+      0,
+      1,
+      0
+    ],
+    "colorCount": 32,
+    "colorHist": {
+      "D9A87C": 1,
+      "E8E2D4": 29,
+      "EF6B5C": 4,
+      "9B2622": 2,
+      "C63A33": 1,
+      "F59A57": 1,
+      "C9526B": 1,
+      "8E2C40": 1,
+      "DE7C90": 1,
+      "1B4E8E": 1,
+      "2A6CBA": 3,
+      "4FA3E8": 2,
+      "63C3D9": 2,
+      "6577D6": 2,
+      "3A46A0": 1,
+      "252C6E": 1,
+      "8B9AE4": 1,
+      "BC3A6C": 1,
+      "8F274C": 2,
+      "E85C93": 1,
+      "F594B8": 1,
+      "A868D8": 1,
+      "7C3FAE": 1,
+      "C795EC": 1,
+      "34BFA4": 1,
+      "63DCC4": 1,
+      "1F8C77": 1,
+      "E0B13A": 8,
+      "E06C9F": 9,
+      "7FB069": 6,
+      "9AA3AD": 5,
+      "8FA8D8": 2
+    }
+  },
+  "beats": [
+    {
+      "id": "1.1",
+      "act": 1,
+      "actTitle": "定位：这是什么、不是什么",
+      "tc": "0:00",
+      "title": "开口定位，先给整体",
+      "ops": [
+        [
+          "reset"
+        ],
+        [
+          "wait",
+          1600
+        ],
+        [
+          "preset",
+          "整体视图"
+        ],
+        [
+          "wait",
+          2000
+        ],
+        [
+          "view",
+          "掌侧"
+        ],
+        [
+          "wait",
+          1800
+        ]
+      ],
+      "after": null,
+      "say": "这是左前臂与手。骨、肌、神经各自成层、可以单独开关。它不替代任何一项检查，用途是把「哪一层、什么位置、和谁挨着」讲到对方能看见。先看整体，掌侧。",
+      "runMs": 6846,
+      "error": null,
+      "ok": true,
+      "checks": [],
+      "state": {
+        "camPos": [
+          0,
+          0.001,
+          10.921
+        ],
+        "target": [
+          0,
+          0.001,
+          0.002
+        ],
+        "dist": 10.919,
+        "up": [
+          0,
+          1,
+          0
+        ],
+        "viewKey": "palmar",
+        "selected": null,
+        "hovered": null,
+        "isolate": false,
+        "colorMode": "func",
+        "highlightGroup": null,
+        "peelDepth": 0,
+        "peelExpanded": [],
+        "clip": {
+          "enabled": false,
+          "value": 0,
+          "flip": false
+        },
+        "activePreset": "overview",
+        "layers": {
+          "skin": {
+            "visible": true,
+            "opacity": 0.3
+          },
+          "bone": {
+            "visible": true,
+            "opacity": 1
+          },
+          "muscle": {
+            "visible": true,
+            "opacity": 0.85
+          },
+          "nerve": {
+            "visible": true,
+            "opacity": 1
+          },
+          "acupoint": {
+            "visible": false,
+            "opacity": 1
+          },
+          "specimen": {
+            "visible": false,
+            "opacity": 1
+          }
+        },
+        "bones": 29,
+        "muscles": 35,
+        "nerves": 30,
+        "skins": 1,
+        "acupoints": 0,
+        "specimens": 0,
+        "total": 95,
+        "unmapped": 0,
+        "unmappedNames": [],
+        "helpers": 1,
+        "peelAlive": {
+          "1": 1,
+          "2": 24,
+          "3": 26,
+          "4": 15
+        },
+        "peelGone": {},
+        "opaque": 94,
+        "mOpacityMin": 0.85,
+        "mOpacityMax": 0.85,
+        "clippingMeshes": 95,
+        "planeConstant": 100000,
+        "planeNormal": [
+          0,
+          1,
+          0
+        ],
+        "colorCount": 32,
+        "colorHist": {
+          "D9A87C": 1,
+          "E8E2D4": 29,
+          "EF6B5C": 4,
+          "9B2622": 2,
+          "C63A33": 1,
+          "F59A57": 1,
+          "C9526B": 1,
+          "8E2C40": 1,
+          "DE7C90": 1,
+          "1B4E8E": 1,
+          "2A6CBA": 3,
+          "4FA3E8": 2,
+          "63C3D9": 2,
+          "6577D6": 2,
+          "3A46A0": 1,
+          "252C6E": 1,
+          "8B9AE4": 1,
+          "BC3A6C": 1,
+          "8F274C": 2,
+          "E85C93": 1,
+          "F594B8": 1,
+          "A868D8": 1,
+          "7C3FAE": 1,
+          "C795EC": 1,
+          "34BFA4": 1,
+          "63DCC4": 1,
+          "1F8C77": 1,
+          "E0B13A": 8,
+          "E06C9F": 9,
+          "7FB069": 6,
+          "9AA3AD": 5,
+          "8FA8D8": 2
+        }
+      },
+      "frame": "frames/1.1.png"
+    },
+    {
+      "id": "1.2",
+      "act": 1,
+      "actTitle": "定位：这是什么、不是什么",
+      "tc": "0:20",
+      "title": "关掉肌肉 —— 骨架加神经才是关键",
+      "ops": [
+        [
+          "layer",
+          "肌肉",
+          false
+        ],
+        [
+          "wait",
+          900
+        ]
+      ],
+      "after": [
+        [
+          "layer",
+          "肌肉",
+          true
+        ],
+        [
+          "wait",
+          700
+        ]
+      ],
+      "say": "把肌肉关掉。骨架加神经走行，是这个东西真正的价值所在：骨性标志和神经的相对位置，可以直接照着讲。",
+      "runMs": 2060,
+      "error": null,
+      "ok": true,
+      "checks": [
+        {
+          "label": "肌肉图层已关闭",
+          "ok": true
+        },
+        {
+          "label": "画面里肌肉块数归零",
+          "ok": true,
+          "detail": "35 → 0"
+        },
+        {
+          "label": "骨、神经与体表未被连带关掉",
+          "ok": true,
+          "detail": "骨 29 / 神经 30 / 体表 1"
+        },
+        {
+          "label": "没有查不到图层归属的可见网格（新加的结构必须登记图层）",
+          "ok": true,
+          "detail": "全部可归属（另有 1 个已标记的辅助几何，不计入）"
+        }
+      ],
+      "state": {
+        "camPos": [
+          0,
+          0.001,
+          10.921
+        ],
+        "target": [
+          0,
+          0.001,
+          0.002
+        ],
+        "dist": 10.919,
+        "up": [
+          0,
+          1,
+          0
+        ],
+        "viewKey": "palmar",
+        "selected": null,
+        "hovered": null,
+        "isolate": false,
+        "colorMode": "func",
+        "highlightGroup": null,
+        "peelDepth": 0,
+        "peelExpanded": [],
+        "clip": {
+          "enabled": false,
+          "value": 0,
+          "flip": false
+        },
+        "activePreset": "overview",
+        "layers": {
+          "skin": {
+            "visible": true,
+            "opacity": 0.3
+          },
+          "bone": {
+            "visible": true,
+            "opacity": 1
+          },
+          "muscle": {
+            "visible": false,
+            "opacity": 0.85
+          },
+          "nerve": {
+            "visible": true,
+            "opacity": 1
+          },
+          "acupoint": {
+            "visible": false,
+            "opacity": 1
+          },
+          "specimen": {
+            "visible": false,
+            "opacity": 1
+          }
+        },
+        "bones": 29,
+        "muscles": 0,
+        "nerves": 30,
+        "skins": 1,
+        "acupoints": 0,
+        "specimens": 0,
+        "total": 60,
+        "unmapped": 0,
+        "unmappedNames": [],
+        "helpers": 1,
+        "peelAlive": {
+          "1": 1,
+          "3": 26,
+          "4": 4
+        },
+        "peelGone": {
+          "2": 24,
+          "4": 11
+        },
+        "opaque": 59,
+        "mOpacityMin": null,
+        "mOpacityMax": null,
+        "clippingMeshes": 60,
+        "planeConstant": 100000,
+        "planeNormal": [
+          0,
+          1,
+          0
+        ],
+        "colorCount": 7,
+        "colorHist": {
+          "D9A87C": 1,
+          "E8E2D4": 29,
+          "E0B13A": 8,
+          "E06C9F": 9,
+          "7FB069": 6,
+          "9AA3AD": 5,
+          "8FA8D8": 2
+        }
+      },
+      "frame": "frames/1.2.png"
+    },
+    {
+      "id": "1.3",
+      "act": 1,
+      "actTitle": "定位：这是什么、不是什么",
+      "tc": "0:38",
+      "title": "不必去掉肌肉，压薄就行",
+      "ops": [
+        [
+          "opacity",
+          "肌肉",
+          0.35
+        ],
+        [
+          "wait",
+          900
+        ]
+      ],
+      "after": null,
+      "say": "肌肉可以调透明度。要看深层结构时不必真的删掉它——压到三成，深层还都在原位。",
+      "runMs": 2222,
+      "error": null,
+      "ok": true,
+      "checks": [
+        {
+          "label": "肌肉材质透明度真的降了（读材质，不读 store）",
+          "ok": true,
+          "detail": "最不透明的肌肉 0.85 → 0.35"
+        },
+        {
+          "label": "图层状态同步为 35%",
+          "ok": true
+        }
+      ],
+      "state": {
+        "camPos": [
+          0,
+          0.001,
+          10.921
+        ],
+        "target": [
+          0,
+          0.001,
+          0.002
+        ],
+        "dist": 10.919,
+        "up": [
+          0,
+          1,
+          0
+        ],
+        "viewKey": "palmar",
+        "selected": null,
+        "hovered": null,
+        "isolate": false,
+        "colorMode": "func",
+        "highlightGroup": null,
+        "peelDepth": 0,
+        "peelExpanded": [],
+        "clip": {
+          "enabled": false,
+          "value": 0,
+          "flip": false
+        },
+        "activePreset": "overview",
+        "layers": {
+          "skin": {
+            "visible": true,
+            "opacity": 0.3
+          },
+          "bone": {
+            "visible": true,
+            "opacity": 1
+          },
+          "muscle": {
+            "visible": true,
+            "opacity": 0.35
+          },
+          "nerve": {
+            "visible": true,
+            "opacity": 1
+          },
+          "acupoint": {
+            "visible": false,
+            "opacity": 1
+          },
+          "specimen": {
+            "visible": false,
+            "opacity": 1
+          }
+        },
+        "bones": 29,
+        "muscles": 35,
+        "nerves": 30,
+        "skins": 1,
+        "acupoints": 0,
+        "specimens": 0,
+        "total": 95,
+        "unmapped": 0,
+        "unmappedNames": [],
+        "helpers": 1,
+        "peelAlive": {
+          "1": 1,
+          "2": 24,
+          "3": 26,
+          "4": 15
+        },
+        "peelGone": {},
+        "opaque": 59,
+        "mOpacityMin": 0.35,
+        "mOpacityMax": 0.35,
+        "clippingMeshes": 95,
+        "planeConstant": 100000,
+        "planeNormal": [
+          0,
+          1,
+          0
+        ],
+        "colorCount": 32,
+        "colorHist": {
+          "D9A87C": 1,
+          "E8E2D4": 29,
+          "EF6B5C": 4,
+          "9B2622": 2,
+          "C63A33": 1,
+          "F59A57": 1,
+          "C9526B": 1,
+          "8E2C40": 1,
+          "DE7C90": 1,
+          "1B4E8E": 1,
+          "2A6CBA": 3,
+          "4FA3E8": 2,
+          "63C3D9": 2,
+          "6577D6": 2,
+          "3A46A0": 1,
+          "252C6E": 1,
+          "8B9AE4": 1,
+          "BC3A6C": 1,
+          "8F274C": 2,
+          "E85C93": 1,
+          "F594B8": 1,
+          "A868D8": 1,
+          "7C3FAE": 1,
+          "C795EC": 1,
+          "34BFA4": 1,
+          "63DCC4": 1,
+          "1F8C77": 1,
+          "E0B13A": 8,
+          "E06C9F": 9,
+          "7FB069": 6,
+          "9AA3AD": 5,
+          "8FA8D8": 2
+        }
+      },
+      "frame": "frames/1.3.png"
+    },
+    {
+      "id": "2.1",
+      "act": 2,
+      "actTitle": "腕管综合征：从病进入",
+      "tc": "0:50",
+      "title": "点一个病名，相机自己定位",
+      "ops": [
+        [
+          "preset",
+          "腕管综合征"
+        ],
+        [
+          "wait",
+          2800
+        ]
+      ],
+      "after": null,
+      "say": "我拿最常见的来试。腕管综合征——正中神经在腕管里受压。点这个按钮，相机自己定位到腕部，不用我在观众面前找角度。",
+      "runMs": 5009,
+      "error": null,
+      "ok": true,
+      "checks": [
+        {
+          "label": "预设已生效",
+          "ok": true,
+          "detail": "carpal-tunnel"
+        },
+        {
+          "label": "相机真的飞过去了（视点位移）",
+          "ok": true,
+          "detail": "[0,0.001,0.002] → [0.207,-1.982,0.137]　位移 1.998"
+        },
+        {
+          "label": "机位拉近",
+          "ok": true,
+          "detail": "距离 10.919 → 1.355"
+        },
+        {
+          "label": "正中神经已选中",
+          "ok": true,
+          "detail": "median"
+        }
+      ],
+      "state": {
+        "camPos": [
+          0.057,
+          -1.632,
+          1.437
+        ],
+        "target": [
+          0.207,
+          -1.982,
+          0.137
+        ],
+        "dist": 1.355,
+        "up": [
+          0,
+          1,
+          0
+        ],
+        "viewKey": null,
+        "selected": "median",
+        "hovered": null,
+        "isolate": false,
+        "colorMode": "func",
+        "highlightGroup": null,
+        "peelDepth": 0,
+        "peelExpanded": [],
+        "clip": {
+          "enabled": false,
+          "value": 0,
+          "flip": false
+        },
+        "activePreset": "carpal-tunnel",
+        "layers": {
+          "skin": {
+            "visible": true,
+            "opacity": 0.3
+          },
+          "bone": {
+            "visible": true,
+            "opacity": 1
+          },
+          "muscle": {
+            "visible": true,
+            "opacity": 0.22
+          },
+          "nerve": {
+            "visible": true,
+            "opacity": 1
+          },
+          "acupoint": {
+            "visible": false,
+            "opacity": 1
+          },
+          "specimen": {
+            "visible": false,
+            "opacity": 1
+          }
+        },
+        "bones": 29,
+        "muscles": 35,
+        "nerves": 30,
+        "skins": 1,
+        "acupoints": 0,
+        "specimens": 0,
+        "total": 95,
+        "unmapped": 3,
+        "unmappedNames": [
+          "(无名)",
+          "(无名)",
+          "(无名)"
+        ],
+        "helpers": 1,
+        "peelAlive": {
+          "1": 1,
+          "2": 24,
+          "3": 26,
+          "4": 15
+        },
+        "peelGone": {},
+        "opaque": 61,
+        "mOpacityMin": 0.092,
+        "mOpacityMax": 0.22,
+        "clippingMeshes": 95,
+        "planeConstant": 100000,
+        "planeNormal": [
+          0,
+          1,
+          0
+        ],
+        "colorCount": 33,
+        "colorHist": {
+          "D9A87C": 1,
+          "E8E2D4": 29,
+          "EF6B5C": 4,
+          "9B2622": 2,
+          "C63A33": 1,
+          "F59A57": 1,
+          "C9526B": 1,
+          "8E2C40": 1,
+          "DE7C90": 1,
+          "1B4E8E": 1,
+          "2A6CBA": 3,
+          "4FA3E8": 2,
+          "63C3D9": 2,
+          "6577D6": 2,
+          "3A46A0": 1,
+          "252C6E": 1,
+          "8B9AE4": 1,
+          "BC3A6C": 1,
+          "8F274C": 2,
+          "E85C93": 1,
+          "F594B8": 1,
+          "A868D8": 1,
+          "7C3FAE": 1,
+          "C795EC": 1,
+          "34BFA4": 1,
+          "63DCC4": 1,
+          "1F8C77": 1,
+          "E0B13A": 8,
+          "FFF0B8": 3,
+          "E06C9F": 9,
+          "7FB069": 6,
+          "9AA3AD": 5,
+          "8FA8D8": 2
+        }
+      },
+      "frame": "frames/2.1.png"
+    },
+    {
+      "id": "2.2",
+      "act": 2,
+      "actTitle": "腕管综合征：从病进入",
+      "tc": "1:20",
+      "title": "再压薄一档：肌肉只剩轮廓",
+      "ops": [
+        [
+          "opacity",
+          "肌肉",
+          0.1
+        ],
+        [
+          "wait",
+          1100
+        ]
+      ],
+      "after": null,
+      "say": "点这个病名的时候，肌肉已经自动压到两成，神经露出来了。如果还嫌它挡视线，可以再往下压——压到一成，肌肉只剩一层轮廓，正中神经和它两侧的骨头完全没有遮挡。",
+      "runMs": 3101,
+      "error": null,
+      "ok": true,
+      "checks": [
+        {
+          "label": "肌肉更透了",
+          "ok": true,
+          "detail": "0.22 → 0.1"
+        },
+        {
+          "label": "神经没被一起压掉",
+          "ok": true,
+          "detail": "神经 30 段可见"
+        }
+      ],
+      "state": {
+        "camPos": [
+          0.057,
+          -1.632,
+          1.437
+        ],
+        "target": [
+          0.207,
+          -1.982,
+          0.137
+        ],
+        "dist": 1.355,
+        "up": [
+          0,
+          1,
+          0
+        ],
+        "viewKey": null,
+        "selected": "median",
+        "hovered": null,
+        "isolate": false,
+        "colorMode": "func",
+        "highlightGroup": null,
+        "peelDepth": 0,
+        "peelExpanded": [],
+        "clip": {
+          "enabled": false,
+          "value": 0,
+          "flip": false
+        },
+        "activePreset": "carpal-tunnel",
+        "layers": {
+          "skin": {
+            "visible": true,
+            "opacity": 0.3
+          },
+          "bone": {
+            "visible": true,
+            "opacity": 1
+          },
+          "muscle": {
+            "visible": true,
+            "opacity": 0.1
+          },
+          "nerve": {
+            "visible": true,
+            "opacity": 1
+          },
+          "acupoint": {
+            "visible": false,
+            "opacity": 1
+          },
+          "specimen": {
+            "visible": false,
+            "opacity": 1
+          }
+        },
+        "bones": 29,
+        "muscles": 35,
+        "nerves": 30,
+        "skins": 1,
+        "acupoints": 0,
+        "specimens": 0,
+        "total": 95,
+        "unmapped": 3,
+        "unmappedNames": [
+          "(无名)",
+          "(无名)",
+          "(无名)"
+        ],
+        "helpers": 1,
+        "peelAlive": {
+          "1": 1,
+          "2": 24,
+          "3": 26,
+          "4": 15
+        },
+        "peelGone": {},
+        "opaque": 62,
+        "mOpacityMin": 0.042,
+        "mOpacityMax": 0.1,
+        "clippingMeshes": 95,
+        "planeConstant": 100000,
+        "planeNormal": [
+          0,
+          1,
+          0
+        ],
+        "colorCount": 33,
+        "colorHist": {
+          "D9A87C": 1,
+          "E8E2D4": 29,
+          "EF6B5C": 4,
+          "9B2622": 2,
+          "C63A33": 1,
+          "F59A57": 1,
+          "C9526B": 1,
+          "8E2C40": 1,
+          "DE7C90": 1,
+          "1B4E8E": 1,
+          "2A6CBA": 3,
+          "4FA3E8": 2,
+          "63C3D9": 2,
+          "6577D6": 2,
+          "3A46A0": 1,
+          "252C6E": 1,
+          "8B9AE4": 1,
+          "BC3A6C": 1,
+          "8F274C": 2,
+          "E85C93": 1,
+          "F594B8": 1,
+          "A868D8": 1,
+          "7C3FAE": 1,
+          "C795EC": 1,
+          "34BFA4": 1,
+          "63DCC4": 1,
+          "1F8C77": 1,
+          "E0B13A": 8,
+          "FFF0B8": 3,
+          "E06C9F": 9,
+          "7FB069": 6,
+          "9AA3AD": 5,
+          "8FA8D8": 2
+        }
+      },
+      "frame": "frames/2.2.png"
+    },
+    {
+      "id": "2.3",
+      "act": 2,
+      "actTitle": "腕管综合征：从病进入",
+      "tc": "1:40",
+      "title": "指着说：悬停出名称",
+      "ops": [
+        [
+          "hoverFind",
+          "median"
+        ],
+        [
+          "wait",
+          400
+        ]
+      ],
+      "after": null,
+      "say": "鼠标停上去，名称直接出来，中英对照。演示时不用背术语。",
+      "runMs": 12203,
+      "error": null,
+      "ok": true,
+      "checks": [
+        {
+          "label": "光标确实命中了正中神经",
+          "ok": true,
+          "detail": "hovered = median"
+        },
+        {
+          "label": "名称浮标已渲染到画布上",
+          "ok": true,
+          "detail": ".hlabel"
+        }
+      ],
+      "state": {
+        "camPos": [
+          0.057,
+          -1.632,
+          1.437
+        ],
+        "target": [
+          0.207,
+          -1.982,
+          0.137
+        ],
+        "dist": 1.355,
+        "up": [
+          0,
+          1,
+          0
+        ],
+        "viewKey": null,
+        "selected": "median",
+        "hovered": "median",
+        "isolate": false,
+        "colorMode": "func",
+        "highlightGroup": null,
+        "peelDepth": 0,
+        "peelExpanded": [],
+        "clip": {
+          "enabled": false,
+          "value": 0,
+          "flip": false
+        },
+        "activePreset": "carpal-tunnel",
+        "layers": {
+          "skin": {
+            "visible": true,
+            "opacity": 0.3
+          },
+          "bone": {
+            "visible": true,
+            "opacity": 1
+          },
+          "muscle": {
+            "visible": true,
+            "opacity": 0.1
+          },
+          "nerve": {
+            "visible": true,
+            "opacity": 1
+          },
+          "acupoint": {
+            "visible": false,
+            "opacity": 1
+          },
+          "specimen": {
+            "visible": false,
+            "opacity": 1
+          }
+        },
+        "bones": 29,
+        "muscles": 35,
+        "nerves": 30,
+        "skins": 1,
+        "acupoints": 0,
+        "specimens": 0,
+        "total": 95,
+        "unmapped": 3,
+        "unmappedNames": [
+          "(无名)",
+          "(无名)",
+          "(无名)"
+        ],
+        "helpers": 1,
+        "peelAlive": {
+          "1": 1,
+          "2": 24,
+          "3": 26,
+          "4": 15
+        },
+        "peelGone": {},
+        "opaque": 61,
+        "mOpacityMin": 0.042,
+        "mOpacityMax": 0.1,
+        "clippingMeshes": 95,
+        "planeConstant": 100000,
+        "planeNormal": [
+          0,
+          1,
+          0
+        ],
+        "colorCount": 33,
+        "colorHist": {
+          "D9A87C": 1,
+          "E8E2D4": 29,
+          "EF6B5C": 4,
+          "9B2622": 2,
+          "C63A33": 1,
+          "F59A57": 1,
+          "C9526B": 1,
+          "8E2C40": 1,
+          "DE7C90": 1,
+          "1B4E8E": 1,
+          "2A6CBA": 3,
+          "4FA3E8": 2,
+          "63C3D9": 2,
+          "6577D6": 2,
+          "3A46A0": 1,
+          "252C6E": 1,
+          "8B9AE4": 1,
+          "BC3A6C": 1,
+          "8F274C": 2,
+          "E85C93": 1,
+          "F594B8": 1,
+          "A868D8": 1,
+          "7C3FAE": 1,
+          "C795EC": 1,
+          "34BFA4": 1,
+          "63DCC4": 1,
+          "1F8C77": 1,
+          "E0B13A": 8,
+          "FFF0B8": 3,
+          "E06C9F": 9,
+          "7FB069": 6,
+          "9AA3AD": 5,
+          "8FA8D8": 2
+        }
+      },
+      "frame": "frames/2.3.png"
+    },
+    {
+      "id": "2.4",
+      "act": 2,
+      "actTitle": "腕管综合征：从病进入",
+      "tc": "2:00",
+      "title": "双击聚焦：之后所有旋转都绕这一点",
+      "ops": [
+        [
+          "dblclickHit"
+        ],
+        [
+          "wait",
+          1800
+        ]
+      ],
+      "after": null,
+      "say": "双击就把视点收进腕管。放大之后旋转、缩放不会再「一拖就飞」，因为它们绕的就是这里。",
+      "runMs": 4192,
+      "error": null,
+      "ok": true,
+      "checks": [
+        {
+          "label": "视点搬到命中处",
+          "ok": true,
+          "detail": "[0.207,-1.982,0.137] → [0.147,-1.717,0.079]"
+        },
+        {
+          "label": "距离进一步收近",
+          "ok": true,
+          "detail": "1.355 → 0.975"
+        },
+        {
+          "label": "选中态保持（没闪成取消）",
+          "ok": true,
+          "detail": "median"
+        }
+      ],
+      "state": {
+        "camPos": [
+          0.039,
+          -1.465,
+          1.015
+        ],
+        "target": [
+          0.147,
+          -1.717,
+          0.079
+        ],
+        "dist": 0.975,
+        "up": [
+          0,
+          1,
+          0
+        ],
+        "viewKey": null,
+        "selected": "median",
+        "hovered": "median",
+        "isolate": false,
+        "colorMode": "func",
+        "highlightGroup": null,
+        "peelDepth": 0,
+        "peelExpanded": [],
+        "clip": {
+          "enabled": false,
+          "value": 0,
+          "flip": false
+        },
+        "activePreset": null,
+        "layers": {
+          "skin": {
+            "visible": true,
+            "opacity": 0.3
+          },
+          "bone": {
+            "visible": true,
+            "opacity": 1
+          },
+          "muscle": {
+            "visible": true,
+            "opacity": 0.1
+          },
+          "nerve": {
+            "visible": true,
+            "opacity": 1
+          },
+          "acupoint": {
+            "visible": false,
+            "opacity": 1
+          },
+          "specimen": {
+            "visible": false,
+            "opacity": 1
+          }
+        },
+        "bones": 29,
+        "muscles": 35,
+        "nerves": 30,
+        "skins": 1,
+        "acupoints": 0,
+        "specimens": 0,
+        "total": 95,
+        "unmapped": 3,
+        "unmappedNames": [
+          "(无名)",
+          "(无名)",
+          "(无名)"
+        ],
+        "helpers": 1,
+        "peelAlive": {
+          "1": 1,
+          "2": 24,
+          "3": 26,
+          "4": 15
+        },
+        "peelGone": {},
+        "opaque": 61,
+        "mOpacityMin": 0.042,
+        "mOpacityMax": 0.1,
+        "clippingMeshes": 95,
+        "planeConstant": 100000,
+        "planeNormal": [
+          0,
+          1,
+          0
+        ],
+        "colorCount": 33,
+        "colorHist": {
+          "D9A87C": 1,
+          "E8E2D4": 29,
+          "EF6B5C": 4,
+          "9B2622": 2,
+          "C63A33": 1,
+          "F59A57": 1,
+          "C9526B": 1,
+          "8E2C40": 1,
+          "DE7C90": 1,
+          "1B4E8E": 1,
+          "2A6CBA": 3,
+          "4FA3E8": 2,
+          "63C3D9": 2,
+          "6577D6": 2,
+          "3A46A0": 1,
+          "252C6E": 1,
+          "8B9AE4": 1,
+          "BC3A6C": 1,
+          "8F274C": 2,
+          "E85C93": 1,
+          "F594B8": 1,
+          "A868D8": 1,
+          "7C3FAE": 1,
+          "C795EC": 1,
+          "34BFA4": 1,
+          "63DCC4": 1,
+          "1F8C77": 1,
+          "E0B13A": 8,
+          "FFF0B8": 3,
+          "E06C9F": 9,
+          "7FB069": 6,
+          "9AA3AD": 5,
+          "8FA8D8": 2
+        }
+      },
+      "frame": "frames/2.4.png"
+    },
+    {
+      "id": "2.5",
+      "act": 2,
+      "actTitle": "腕管综合征：从病进入",
+      "tc": "2:25",
+      "title": "孤立模式：给患者看最有效的一步",
+      "ops": [
+        [
+          "isolate",
+          true
+        ],
+        [
+          "wait",
+          1100
+        ]
+      ],
+      "after": null,
+      "say": "孤立模式——点中的留下，其余全部淡出。只留正中神经和它旁边那几块骨头。跟患者解释「压的是这根」的时候，这一步最省话。",
+      "runMs": 3253,
+      "error": null,
+      "ok": true,
+      "checks": [
+        {
+          "label": "孤立模式已开",
+          "ok": true
+        },
+        {
+          "label": "其余结构确实淡出了",
+          "ok": true,
+          "detail": "最淡的肌肉 0.015（目标结构仍为 0.015）"
+        },
+        {
+          "label": "画面上实心的结构变少",
+          "ok": true,
+          "detail": "实心结构 61 → 3"
+        }
+      ],
+      "state": {
+        "camPos": [
+          0.039,
+          -1.465,
+          1.015
+        ],
+        "target": [
+          0.147,
+          -1.717,
+          0.079
+        ],
+        "dist": 0.975,
+        "up": [
+          0,
+          1,
+          0
+        ],
+        "viewKey": null,
+        "selected": "median",
+        "hovered": "median",
+        "isolate": true,
+        "colorMode": "func",
+        "highlightGroup": null,
+        "peelDepth": 0,
+        "peelExpanded": [],
+        "clip": {
+          "enabled": false,
+          "value": 0,
+          "flip": false
+        },
+        "activePreset": null,
+        "layers": {
+          "skin": {
+            "visible": true,
+            "opacity": 0.3
+          },
+          "bone": {
+            "visible": true,
+            "opacity": 1
+          },
+          "muscle": {
+            "visible": true,
+            "opacity": 0.1
+          },
+          "nerve": {
+            "visible": true,
+            "opacity": 1
+          },
+          "acupoint": {
+            "visible": false,
+            "opacity": 1
+          },
+          "specimen": {
+            "visible": false,
+            "opacity": 1
+          }
+        },
+        "bones": 29,
+        "muscles": 35,
+        "nerves": 30,
+        "skins": 1,
+        "acupoints": 0,
+        "specimens": 0,
+        "total": 95,
+        "unmapped": 3,
+        "unmappedNames": [
+          "(无名)",
+          "(无名)",
+          "(无名)"
+        ],
+        "helpers": 1,
+        "peelAlive": {
+          "1": 1,
+          "2": 24,
+          "3": 26,
+          "4": 15
+        },
+        "peelGone": {},
+        "opaque": 3,
+        "mOpacityMin": 0.015,
+        "mOpacityMax": 0.015,
+        "clippingMeshes": 95,
+        "planeConstant": 100000,
+        "planeNormal": [
+          0,
+          1,
+          0
+        ],
+        "colorCount": 33,
+        "colorHist": {
+          "D9A87C": 1,
+          "E8E2D4": 29,
+          "EF6B5C": 4,
+          "9B2622": 2,
+          "C63A33": 1,
+          "F59A57": 1,
+          "C9526B": 1,
+          "8E2C40": 1,
+          "DE7C90": 1,
+          "1B4E8E": 1,
+          "2A6CBA": 3,
+          "4FA3E8": 2,
+          "63C3D9": 2,
+          "6577D6": 2,
+          "3A46A0": 1,
+          "252C6E": 1,
+          "8B9AE4": 1,
+          "BC3A6C": 1,
+          "8F274C": 2,
+          "E85C93": 1,
+          "F594B8": 1,
+          "A868D8": 1,
+          "7C3FAE": 1,
+          "C795EC": 1,
+          "34BFA4": 1,
+          "63DCC4": 1,
+          "1F8C77": 1,
+          "E0B13A": 8,
+          "FFF0B8": 3,
+          "E06C9F": 9,
+          "7FB069": 6,
+          "9AA3AD": 5,
+          "8FA8D8": 2
+        }
+      },
+      "frame": "frames/2.5.png"
+    },
+    {
+      "id": "3.1",
+      "act": 3,
+      "actTitle": "逐层剥离：按手术入路的层次",
+      "tc": "2:50",
+      "title": "回到整体，进入逐层剥离",
+      "ops": [
+        [
+          "isolate",
+          false
+        ],
+        [
+          "wait",
+          500
+        ],
+        [
+          "opacity",
+          "肌肉",
+          0.85
+        ],
+        [
+          "wait",
+          400
+        ],
+        [
+          "reset"
+        ],
+        [
+          "wait",
+          2200
+        ],
+        [
+          "view",
+          "掌侧"
+        ],
+        [
+          "wait",
+          1600
+        ]
+      ],
+      "after": null,
+      "say": "回到整体。接下来是它最像「解剖」的一段：逐层剥离。顺序不是随便排的，它对应你在手术里由浅入深遇到的那几层。",
+      "runMs": 6050,
+      "error": null,
+      "ok": true,
+      "checks": [
+        {
+          "label": "孤立模式已关",
+          "ok": true
+        },
+        {
+          "label": "剥离进度为 0",
+          "ok": true
+        },
+        {
+          "label": "机构回到中心",
+          "ok": true,
+          "detail": "[0,0,0]"
+        }
+      ],
+      "state": {
+        "camPos": [
+          0,
+          0,
+          9.765
+        ],
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "dist": 9.765,
+        "up": [
+          0,
+          1,
+          0
+        ],
+        "viewKey": "palmar",
+        "selected": "median",
+        "hovered": "median",
+        "isolate": false,
+        "colorMode": "func",
+        "highlightGroup": null,
+        "peelDepth": 0,
+        "peelExpanded": [],
+        "clip": {
+          "enabled": false,
+          "value": 0,
+          "flip": false
+        },
+        "activePreset": null,
+        "layers": {
+          "skin": {
+            "visible": true,
+            "opacity": 0.3
+          },
+          "bone": {
+            "visible": true,
+            "opacity": 1
+          },
+          "muscle": {
+            "visible": true,
+            "opacity": 0.85
+          },
+          "nerve": {
+            "visible": true,
+            "opacity": 1
+          },
+          "acupoint": {
+            "visible": false,
+            "opacity": 1
+          },
+          "specimen": {
+            "visible": false,
+            "opacity": 1
+          }
+        },
+        "bones": 29,
+        "muscles": 35,
+        "nerves": 30,
+        "skins": 1,
+        "acupoints": 0,
+        "specimens": 0,
+        "total": 95,
+        "unmapped": 3,
+        "unmappedNames": [
+          "(无名)",
+          "(无名)",
+          "(无名)"
+        ],
+        "helpers": 1,
+        "peelAlive": {
+          "1": 1,
+          "2": 24,
+          "3": 26,
+          "4": 15
+        },
+        "peelGone": {},
+        "opaque": 69,
+        "mOpacityMin": 0.32,
+        "mOpacityMax": 0.85,
+        "clippingMeshes": 95,
+        "planeConstant": 100000,
+        "planeNormal": [
+          0,
+          1,
+          0
+        ],
+        "colorCount": 33,
+        "colorHist": {
+          "D9A87C": 1,
+          "E8E2D4": 29,
+          "EF6B5C": 4,
+          "9B2622": 2,
+          "C63A33": 1,
+          "F59A57": 1,
+          "C9526B": 1,
+          "8E2C40": 1,
+          "DE7C90": 1,
+          "1B4E8E": 1,
+          "2A6CBA": 3,
+          "4FA3E8": 2,
+          "63C3D9": 2,
+          "6577D6": 2,
+          "3A46A0": 1,
+          "252C6E": 1,
+          "8B9AE4": 1,
+          "BC3A6C": 1,
+          "8F274C": 2,
+          "E85C93": 1,
+          "F594B8": 1,
+          "A868D8": 1,
+          "7C3FAE": 1,
+          "C795EC": 1,
+          "34BFA4": 1,
+          "63DCC4": 1,
+          "1F8C77": 1,
+          "E0B13A": 8,
+          "FFF0B8": 3,
+          "E06C9F": 9,
+          "7FB069": 6,
+          "9AA3AD": 5,
+          "8FA8D8": 2
+        }
+      },
+      "frame": "frames/3.1.png"
+    },
+    {
+      "id": "3.2",
+      "act": 3,
+      "actTitle": "逐层剥离：按手术入路的层次",
+      "tc": "3:05",
+      "title": "第一层：体表壳",
+      "ops": [
+        [
+          "peel",
+          1
+        ],
+        [
+          "wait",
+          1400
+        ]
+      ],
+      "after": null,
+      "say": "第一层是最外面的体表。要说清楚：这一层壳不是扫描来的，全库没有皮肤几何——它是由骨和肌的轮廓向外等距外扩三毫米半算出来的，只用来表达肢体的范围，不能拿来量围度。剥掉它，才看得到肌肉。",
+      "runMs": 2390,
+      "error": null,
+      "ok": true,
+      "checks": [
+        {
+          "label": "进度 = 1",
+          "ok": true
+        },
+        {
+          "label": "体表壳被剥掉",
+          "ok": true,
+          "detail": "可见体表 1 → 0"
+        },
+        {
+          "label": "第 1 步已剥净、第 2 步（浅层肌群）完整",
+          "ok": true,
+          "detail": "仍有第 1 步结构 0 个 / 第 2 步 24 个"
+        },
+        {
+          "label": "肌肉一块没少（剥的只是外壳）",
+          "ok": true,
+          "detail": "肌肉 35 → 35"
+        }
+      ],
+      "state": {
+        "camPos": [
+          0,
+          0,
+          9.765
+        ],
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "dist": 9.765,
+        "up": [
+          0,
+          1,
+          0
+        ],
+        "viewKey": "palmar",
+        "selected": "median",
+        "hovered": "median",
+        "isolate": false,
+        "colorMode": "func",
+        "highlightGroup": null,
+        "peelDepth": 1,
+        "peelExpanded": [],
+        "clip": {
+          "enabled": false,
+          "value": 0,
+          "flip": false
+        },
+        "activePreset": null,
+        "layers": {
+          "skin": {
+            "visible": true,
+            "opacity": 0.3
+          },
+          "bone": {
+            "visible": true,
+            "opacity": 1
+          },
+          "muscle": {
+            "visible": true,
+            "opacity": 0.85
+          },
+          "nerve": {
+            "visible": true,
+            "opacity": 1
+          },
+          "acupoint": {
+            "visible": false,
+            "opacity": 1
+          },
+          "specimen": {
+            "visible": false,
+            "opacity": 1
+          }
+        },
+        "bones": 29,
+        "muscles": 35,
+        "nerves": 30,
+        "skins": 0,
+        "acupoints": 0,
+        "specimens": 0,
+        "total": 94,
+        "unmapped": 3,
+        "unmappedNames": [
+          "(无名)",
+          "(无名)",
+          "(无名)"
+        ],
+        "helpers": 1,
+        "peelAlive": {
+          "2": 24,
+          "3": 26,
+          "4": 15
+        },
+        "peelGone": {
+          "1": 1
+        },
+        "opaque": 69,
+        "mOpacityMin": 0.32,
+        "mOpacityMax": 0.85,
+        "clippingMeshes": 94,
+        "planeConstant": 100000,
+        "planeNormal": [
+          0,
+          1,
+          0
+        ],
+        "colorCount": 32,
+        "colorHist": {
+          "E8E2D4": 29,
+          "EF6B5C": 4,
+          "9B2622": 2,
+          "C63A33": 1,
+          "F59A57": 1,
+          "C9526B": 1,
+          "8E2C40": 1,
+          "DE7C90": 1,
+          "1B4E8E": 1,
+          "2A6CBA": 3,
+          "4FA3E8": 2,
+          "63C3D9": 2,
+          "6577D6": 2,
+          "3A46A0": 1,
+          "252C6E": 1,
+          "8B9AE4": 1,
+          "BC3A6C": 1,
+          "8F274C": 2,
+          "E85C93": 1,
+          "F594B8": 1,
+          "A868D8": 1,
+          "7C3FAE": 1,
+          "C795EC": 1,
+          "34BFA4": 1,
+          "63DCC4": 1,
+          "1F8C77": 1,
+          "E0B13A": 8,
+          "FFF0B8": 3,
+          "E06C9F": 9,
+          "7FB069": 6,
+          "9AA3AD": 5,
+          "8FA8D8": 2
+        }
+      },
+      "frame": "frames/3.2.png"
+    },
+    {
+      "id": "3.3",
+      "act": 3,
+      "actTitle": "逐层剥离：按手术入路的层次",
+      "tc": "3:24",
+      "title": "第二层：浅层肌群",
+      "ops": [
+        [
+          "peel",
+          2
+        ],
+        [
+          "wait",
+          1400
+        ]
+      ],
+      "after": null,
+      "say": "第二层，浅层肌群——屈肌浅层、伸肌浅层、鱼际、小鱼际。这就是手术里切开体表之后最先遇到的那一层。",
+      "runMs": 2294,
+      "error": null,
+      "ok": true,
+      "checks": [
+        {
+          "label": "进度 = 2",
+          "ok": true
+        },
+        {
+          "label": "可见结构数下降（剥离真的发生了）",
+          "ok": true,
+          "detail": "可见肌肉 35 → 11 块"
+        },
+        {
+          "label": "骨骼不受影响（不参与剥离）",
+          "ok": true,
+          "detail": "骨 29 → 29"
+        },
+        {
+          "label": "第 3 步（神经血管层）还完整盖着",
+          "ok": true,
+          "detail": "第 3 步仍有 26 个可见"
+        }
+      ],
+      "state": {
+        "camPos": [
+          0,
+          0,
+          9.765
+        ],
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "dist": 9.765,
+        "up": [
+          0,
+          1,
+          0
+        ],
+        "viewKey": "palmar",
+        "selected": "median",
+        "hovered": "median",
+        "isolate": false,
+        "colorMode": "func",
+        "highlightGroup": null,
+        "peelDepth": 2,
+        "peelExpanded": [],
+        "clip": {
+          "enabled": false,
+          "value": 0,
+          "flip": false
+        },
+        "activePreset": null,
+        "layers": {
+          "skin": {
+            "visible": true,
+            "opacity": 0.3
+          },
+          "bone": {
+            "visible": true,
+            "opacity": 1
+          },
+          "muscle": {
+            "visible": true,
+            "opacity": 0.85
+          },
+          "nerve": {
+            "visible": true,
+            "opacity": 1
+          },
+          "acupoint": {
+            "visible": false,
+            "opacity": 1
+          },
+          "specimen": {
+            "visible": false,
+            "opacity": 1
+          }
+        },
+        "bones": 29,
+        "muscles": 11,
+        "nerves": 30,
+        "skins": 0,
+        "acupoints": 0,
+        "specimens": 0,
+        "total": 70,
+        "unmapped": 3,
+        "unmappedNames": [
+          "(无名)",
+          "(无名)",
+          "(无名)"
+        ],
+        "helpers": 1,
+        "peelAlive": {
+          "3": 26,
+          "4": 15
+        },
+        "peelGone": {
+          "1": 1,
+          "2": 24
+        },
+        "opaque": 62,
+        "mOpacityMin": 0.32,
+        "mOpacityMax": 0.32,
+        "clippingMeshes": 70,
+        "planeConstant": 100000,
+        "planeNormal": [
+          0,
+          1,
+          0
+        ],
+        "colorCount": 17,
+        "colorHist": {
+          "E8E2D4": 29,
+          "C9526B": 1,
+          "8E2C40": 1,
+          "DE7C90": 1,
+          "6577D6": 2,
+          "3A46A0": 1,
+          "252C6E": 1,
+          "8B9AE4": 1,
+          "34BFA4": 1,
+          "63DCC4": 1,
+          "1F8C77": 1,
+          "E0B13A": 8,
+          "FFF0B8": 3,
+          "E06C9F": 9,
+          "7FB069": 6,
+          "9AA3AD": 5,
+          "8FA8D8": 2
+        }
+      },
+      "frame": "frames/3.3.png"
+    },
+    {
+      "id": "3.4",
+      "act": 3,
+      "actTitle": "逐层剥离：按手术入路的层次",
+      "tc": "3:44",
+      "title": "第三层是神经，不是深层肌",
+      "ops": [
+        [
+          "peel",
+          3
+        ],
+        [
+          "wait",
+          1400
+        ]
+      ],
+      "after": null,
+      "say": "第三层不是深层肌，是神经。前臂中段正中神经走在指浅屈肌深面、指深屈肌浅面——所以剥掉浅层肌，第一眼看到的是它。这个顺序本身就是一条解剖信息。",
+      "runMs": 2121,
+      "error": null,
+      "ok": true,
+      "checks": [
+        {
+          "label": "进度 = 3",
+          "ok": true
+        },
+        {
+          "label": "神经被剥掉",
+          "ok": true,
+          "detail": "神经 30 → 4"
+        },
+        {
+          "label": "深层肌还在（说明神经夹在浅深肌之间）",
+          "ok": true,
+          "detail": "第 4 步（深层肌群）仍有 15 个可见"
+        }
+      ],
+      "state": {
+        "camPos": [
+          0,
+          0,
+          9.765
+        ],
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "dist": 9.765,
+        "up": [
+          0,
+          1,
+          0
+        ],
+        "viewKey": "palmar",
+        "selected": null,
+        "hovered": "median",
+        "isolate": false,
+        "colorMode": "func",
+        "highlightGroup": null,
+        "peelDepth": 3,
+        "peelExpanded": [],
+        "clip": {
+          "enabled": false,
+          "value": 0,
+          "flip": false
+        },
+        "activePreset": null,
+        "layers": {
+          "skin": {
+            "visible": true,
+            "opacity": 0.3
+          },
+          "bone": {
+            "visible": true,
+            "opacity": 1
+          },
+          "muscle": {
+            "visible": true,
+            "opacity": 0.85
+          },
+          "nerve": {
+            "visible": true,
+            "opacity": 1
+          },
+          "acupoint": {
+            "visible": false,
+            "opacity": 1
+          },
+          "specimen": {
+            "visible": false,
+            "opacity": 1
+          }
+        },
+        "bones": 29,
+        "muscles": 11,
+        "nerves": 4,
+        "skins": 0,
+        "acupoints": 0,
+        "specimens": 0,
+        "total": 44,
+        "unmapped": 0,
+        "unmappedNames": [],
+        "helpers": 1,
+        "peelAlive": {
+          "4": 15
+        },
+        "peelGone": {
+          "1": 1,
+          "2": 24,
+          "3": 26
+        },
+        "opaque": 44,
+        "mOpacityMin": 0.85,
+        "mOpacityMax": 0.85,
+        "clippingMeshes": 44,
+        "planeConstant": 100000,
+        "planeNormal": [
+          0,
+          1,
+          0
+        ],
+        "colorCount": 14,
+        "colorHist": {
+          "E8E2D4": 29,
+          "C9526B": 1,
+          "8E2C40": 1,
+          "DE7C90": 1,
+          "6577D6": 2,
+          "3A46A0": 1,
+          "252C6E": 1,
+          "8B9AE4": 1,
+          "34BFA4": 1,
+          "63DCC4": 1,
+          "1F8C77": 1,
+          "E0B13A": 1,
+          "E06C9F": 1,
+          "7FB069": 2
+        }
+      },
+      "frame": "frames/3.4.png"
+    },
+    {
+      "id": "3.5",
+      "act": 3,
+      "actTitle": "逐层剥离：按手术入路的层次",
+      "tc": "4:08",
+      "title": "展开浅层，只剥背侧",
+      "ops": [
+        [
+          "peelAction",
+          "复原"
+        ],
+        [
+          "wait",
+          1500
+        ],
+        [
+          "mark",
+          "base"
+        ],
+        [
+          "peelExpand",
+          "浅层肌群"
+        ],
+        [
+          "wait",
+          800
+        ],
+        [
+          "peelSub",
+          "伸肌 · 浅层"
+        ],
+        [
+          "wait",
+          1500
+        ]
+      ],
+      "after": null,
+      "say": "展开可以把一层拆开。只剥背侧的伸肌浅层、掌侧还留着——做背侧入路和掌侧入路，术中看到的就是两幅不同的画面。",
+      "runMs": 4766,
+      "error": null,
+      "ok": true,
+      "checks": [
+        {
+          "label": "浅层已展开为子层",
+          "ok": true,
+          "detail": "[\"shallow\"]"
+        },
+        {
+          "label": "背侧那一步已剥净，掌侧那一步原封不动",
+          "ok": true,
+          "detail": "第 2 步（伸肌·浅层）剩 0 个 / 第 3 步（屈肌·浅层）剩 8 个"
+        },
+        {
+          "label": "只剥了一部分（不是整层）",
+          "ok": true,
+          "detail": "整层完整时可见肌肉 35 块 → 只剥背侧伸肌浅层后 27 块（掌侧仍留着）"
+        },
+        {
+          "label": "体表也已剥掉（不是从体表开始重来）",
+          "ok": true
+        }
+      ],
+      "state": {
+        "camPos": [
+          0,
+          0,
+          9.765
+        ],
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "dist": 9.765,
+        "up": [
+          0,
+          1,
+          0
+        ],
+        "viewKey": "palmar",
+        "selected": null,
+        "hovered": "median",
+        "isolate": false,
+        "colorMode": "func",
+        "highlightGroup": null,
+        "peelDepth": 2,
+        "peelExpanded": [
+          "shallow"
+        ],
+        "clip": {
+          "enabled": false,
+          "value": 0,
+          "flip": false
+        },
+        "activePreset": null,
+        "layers": {
+          "skin": {
+            "visible": true,
+            "opacity": 0.3
+          },
+          "bone": {
+            "visible": true,
+            "opacity": 1
+          },
+          "muscle": {
+            "visible": true,
+            "opacity": 0.85
+          },
+          "nerve": {
+            "visible": true,
+            "opacity": 1
+          },
+          "acupoint": {
+            "visible": false,
+            "opacity": 1
+          },
+          "specimen": {
+            "visible": false,
+            "opacity": 1
+          }
+        },
+        "bones": 29,
+        "muscles": 27,
+        "nerves": 30,
+        "skins": 0,
+        "acupoints": 0,
+        "specimens": 0,
+        "total": 86,
+        "unmapped": 3,
+        "unmappedNames": [
+          "(无名)",
+          "(无名)",
+          "(无名)"
+        ],
+        "helpers": 1,
+        "peelAlive": {
+          "3": 8,
+          "4": 5,
+          "5": 3,
+          "6": 26,
+          "7": 15
+        },
+        "peelGone": {
+          "1": 1,
+          "2": 8
+        },
+        "opaque": 89,
+        "mOpacityMin": 0.85,
+        "mOpacityMax": 0.85,
+        "clippingMeshes": 86,
+        "planeConstant": 100000,
+        "planeNormal": [
+          0,
+          1,
+          0
+        ],
+        "colorCount": 28,
+        "colorHist": {
+          "E8E2D4": 29,
+          "EF6B5C": 4,
+          "9B2622": 2,
+          "C63A33": 1,
+          "F59A57": 1,
+          "C9526B": 1,
+          "8E2C40": 1,
+          "DE7C90": 1,
+          "6577D6": 2,
+          "3A46A0": 1,
+          "252C6E": 1,
+          "8B9AE4": 1,
+          "BC3A6C": 1,
+          "8F274C": 2,
+          "E85C93": 1,
+          "F594B8": 1,
+          "A868D8": 1,
+          "7C3FAE": 1,
+          "C795EC": 1,
+          "34BFA4": 1,
+          "63DCC4": 1,
+          "1F8C77": 1,
+          "E0B13A": 8,
+          "FFF0B8": 3,
+          "E06C9F": 9,
+          "7FB069": 6,
+          "9AA3AD": 5,
+          "8FA8D8": 2
+        }
+      },
+      "frame": "frames/3.5.png"
+    },
+    {
+      "id": "3.6",
+      "act": 3,
+      "actTitle": "逐层剥离：按手术入路的层次",
+      "tc": "4:23",
+      "title": "收起：进度保持，画面不跳",
+      "ops": [
+        [
+          "peelCollapse",
+          "浅层肌群"
+        ],
+        [
+          "wait",
+          1200
+        ]
+      ],
+      "after": null,
+      "say": "收起来。已经剥掉的层保持不变，画面不会跳回另一种状态。",
+      "runMs": 2085,
+      "error": null,
+      "ok": true,
+      "checks": [
+        {
+          "label": "已折叠",
+          "ok": true
+        },
+        {
+          "label": "进度没有归零（重映射生效）",
+          "ok": true,
+          "detail": "depth = 2"
+        },
+        {
+          "label": "折叠后仍是「体表 + 浅层肌群已剥、神经未剥」",
+          "ok": true,
+          "detail": "体表 0 / 神经 30 → 30"
+        }
+      ],
+      "state": {
+        "camPos": [
+          0,
+          0,
+          9.765
+        ],
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "dist": 9.765,
+        "up": [
+          0,
+          1,
+          0
+        ],
+        "viewKey": "palmar",
+        "selected": null,
+        "hovered": "median",
+        "isolate": false,
+        "colorMode": "func",
+        "highlightGroup": null,
+        "peelDepth": 2,
+        "peelExpanded": [],
+        "clip": {
+          "enabled": false,
+          "value": 0,
+          "flip": false
+        },
+        "activePreset": null,
+        "layers": {
+          "skin": {
+            "visible": true,
+            "opacity": 0.3
+          },
+          "bone": {
+            "visible": true,
+            "opacity": 1
+          },
+          "muscle": {
+            "visible": true,
+            "opacity": 0.85
+          },
+          "nerve": {
+            "visible": true,
+            "opacity": 1
+          },
+          "acupoint": {
+            "visible": false,
+            "opacity": 1
+          },
+          "specimen": {
+            "visible": false,
+            "opacity": 1
+          }
+        },
+        "bones": 29,
+        "muscles": 11,
+        "nerves": 30,
+        "skins": 0,
+        "acupoints": 0,
+        "specimens": 0,
+        "total": 70,
+        "unmapped": 3,
+        "unmappedNames": [
+          "(无名)",
+          "(无名)",
+          "(无名)"
+        ],
+        "helpers": 1,
+        "peelAlive": {
+          "3": 26,
+          "4": 15
+        },
+        "peelGone": {
+          "1": 1,
+          "2": 24
+        },
+        "opaque": 73,
+        "mOpacityMin": 0.85,
+        "mOpacityMax": 0.85,
+        "clippingMeshes": 70,
+        "planeConstant": 100000,
+        "planeNormal": [
+          0,
+          1,
+          0
+        ],
+        "colorCount": 17,
+        "colorHist": {
+          "E8E2D4": 29,
+          "C9526B": 1,
+          "8E2C40": 1,
+          "DE7C90": 1,
+          "6577D6": 2,
+          "3A46A0": 1,
+          "252C6E": 1,
+          "8B9AE4": 1,
+          "34BFA4": 1,
+          "63DCC4": 1,
+          "1F8C77": 1,
+          "E0B13A": 8,
+          "FFF0B8": 3,
+          "E06C9F": 9,
+          "7FB069": 6,
+          "9AA3AD": 5,
+          "8FA8D8": 2
+        }
+      },
+      "frame": "frames/3.6.png"
+    },
+    {
+      "id": "3.7",
+      "act": 3,
+      "actTitle": "逐层剥离：按手术入路的层次",
+      "tc": "4:31",
+      "title": "一路剥到骨",
+      "ops": [
+        [
+          "peelAction",
+          "剥到骨"
+        ],
+        [
+          "wait",
+          2400
+        ]
+      ],
+      "after": null,
+      "say": "一路剥到底。只剩骨骼。",
+      "runMs": 2803,
+      "error": null,
+      "ok": true,
+      "checks": [
+        {
+          "label": "体表、肌肉与神经全部剥净，只剩骨",
+          "ok": true,
+          "detail": "骨 29 / 肌 0 / 神经 0 / 体表 0"
+        },
+        {
+          "label": "骨骼数量与剥离前一致",
+          "ok": true,
+          "detail": "骨 29 → 29"
+        }
+      ],
+      "state": {
+        "camPos": [
+          0,
+          0,
+          9.765
+        ],
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "dist": 9.765,
+        "up": [
+          0,
+          1,
+          0
+        ],
+        "viewKey": "palmar",
+        "selected": null,
+        "hovered": "median",
+        "isolate": false,
+        "colorMode": "func",
+        "highlightGroup": null,
+        "peelDepth": 4,
+        "peelExpanded": [],
+        "clip": {
+          "enabled": false,
+          "value": 0,
+          "flip": false
+        },
+        "activePreset": null,
+        "layers": {
+          "skin": {
+            "visible": true,
+            "opacity": 0.3
+          },
+          "bone": {
+            "visible": true,
+            "opacity": 1
+          },
+          "muscle": {
+            "visible": true,
+            "opacity": 0.85
+          },
+          "nerve": {
+            "visible": true,
+            "opacity": 1
+          },
+          "acupoint": {
+            "visible": false,
+            "opacity": 1
+          },
+          "specimen": {
+            "visible": false,
+            "opacity": 1
+          }
+        },
+        "bones": 29,
+        "muscles": 0,
+        "nerves": 0,
+        "skins": 0,
+        "acupoints": 0,
+        "specimens": 0,
+        "total": 29,
+        "unmapped": 0,
+        "unmappedNames": [],
+        "helpers": 1,
+        "peelAlive": {},
+        "peelGone": {
+          "1": 1,
+          "2": 24,
+          "3": 26,
+          "4": 15
+        },
+        "opaque": 29,
+        "mOpacityMin": null,
+        "mOpacityMax": null,
+        "clippingMeshes": 29,
+        "planeConstant": 100000,
+        "planeNormal": [
+          0,
+          1,
+          0
+        ],
+        "colorCount": 1,
+        "colorHist": {
+          "E8E2D4": 29
+        }
+      },
+      "frame": "frames/3.7.png"
+    },
+    {
+      "id": "3.8",
+      "act": 3,
+      "actTitle": "逐层剥离：按手术入路的层次",
+      "tc": "4:39",
+      "title": "复原",
+      "ops": [
+        [
+          "peelAction",
+          "复原"
+        ],
+        [
+          "wait",
+          2400
+        ]
+      ],
+      "after": null,
+      "say": "复原。",
+      "runMs": 3824,
+      "error": null,
+      "ok": true,
+      "checks": [
+        {
+          "label": "进度归零",
+          "ok": true
+        },
+        {
+          "label": "三层结构都回到画面",
+          "ok": true,
+          "detail": "肌 35 / 神经 30 / 体表 1"
+        },
+        {
+          "label": "骨骼仍完好",
+          "ok": true,
+          "detail": "骨 29"
+        }
+      ],
+      "state": {
+        "camPos": [
+          0,
+          0,
+          9.765
+        ],
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "dist": 9.765,
+        "up": [
+          0,
+          1,
+          0
+        ],
+        "viewKey": "palmar",
+        "selected": null,
+        "hovered": "median",
+        "isolate": false,
+        "colorMode": "func",
+        "highlightGroup": null,
+        "peelDepth": 0,
+        "peelExpanded": [],
+        "clip": {
+          "enabled": false,
+          "value": 0,
+          "flip": false
+        },
+        "activePreset": null,
+        "layers": {
+          "skin": {
+            "visible": true,
+            "opacity": 0.3
+          },
+          "bone": {
+            "visible": true,
+            "opacity": 1
+          },
+          "muscle": {
+            "visible": true,
+            "opacity": 0.85
+          },
+          "nerve": {
+            "visible": true,
+            "opacity": 1
+          },
+          "acupoint": {
+            "visible": false,
+            "opacity": 1
+          },
+          "specimen": {
+            "visible": false,
+            "opacity": 1
+          }
+        },
+        "bones": 29,
+        "muscles": 35,
+        "nerves": 30,
+        "skins": 1,
+        "acupoints": 0,
+        "specimens": 0,
+        "total": 95,
+        "unmapped": 3,
+        "unmappedNames": [
+          "(无名)",
+          "(无名)",
+          "(无名)"
+        ],
+        "helpers": 1,
+        "peelAlive": {
+          "1": 1,
+          "2": 24,
+          "3": 26,
+          "4": 15
+        },
+        "peelGone": {},
+        "opaque": 97,
+        "mOpacityMin": 0.85,
+        "mOpacityMax": 0.85,
+        "clippingMeshes": 95,
+        "planeConstant": 100000,
+        "planeNormal": [
+          0,
+          1,
+          0
+        ],
+        "colorCount": 33,
+        "colorHist": {
+          "D9A87C": 1,
+          "E8E2D4": 29,
+          "EF6B5C": 4,
+          "9B2622": 2,
+          "C63A33": 1,
+          "F59A57": 1,
+          "C9526B": 1,
+          "8E2C40": 1,
+          "DE7C90": 1,
+          "1B4E8E": 1,
+          "2A6CBA": 3,
+          "4FA3E8": 2,
+          "63C3D9": 2,
+          "6577D6": 2,
+          "3A46A0": 1,
+          "252C6E": 1,
+          "8B9AE4": 1,
+          "BC3A6C": 1,
+          "8F274C": 2,
+          "E85C93": 1,
+          "F594B8": 1,
+          "A868D8": 1,
+          "7C3FAE": 1,
+          "C795EC": 1,
+          "34BFA4": 1,
+          "63DCC4": 1,
+          "1F8C77": 1,
+          "E0B13A": 8,
+          "FFF0B8": 3,
+          "E06C9F": 9,
+          "7FB069": 6,
+          "9AA3AD": 5,
+          "8FA8D8": 2
+        }
+      },
+      "frame": "frames/3.8.png"
+    },
+    {
+      "id": "4.1",
+      "act": 4,
+      "actTitle": "改编码：神经支配着色",
+      "tc": "4:45",
+      "title": "换个编码方式：神经支配",
+      "ops": [
+        [
+          "color",
+          "神经支配"
+        ],
+        [
+          "wait",
+          1300
+        ]
+      ],
+      "after": null,
+      "say": "换个编码方式。现在颜色代表的不是肌肉功能群，而是神经支配。暖色是正中神经，紫是尺神经，蓝是桡神经。",
+      "runMs": 2685,
+      "error": null,
+      "ok": true,
+      "checks": [
+        {
+          "label": "已切到神经支配模式",
+          "ok": true
+        },
+        {
+          "label": "画面配色直方图整体换掉（说明真的重绘了）",
+          "ok": true,
+          "detail": "33 种颜色 → 22 种"
+        }
+      ],
+      "state": {
+        "camPos": [
+          0,
+          0,
+          9.765
+        ],
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "dist": 9.765,
+        "up": [
+          0,
+          1,
+          0
+        ],
+        "viewKey": "palmar",
+        "selected": null,
+        "hovered": "median",
+        "isolate": false,
+        "colorMode": "nerve",
+        "highlightGroup": null,
+        "peelDepth": 0,
+        "peelExpanded": [],
+        "clip": {
+          "enabled": false,
+          "value": 0,
+          "flip": false
+        },
+        "activePreset": null,
+        "layers": {
+          "skin": {
+            "visible": true,
+            "opacity": 0.3
+          },
+          "bone": {
+            "visible": true,
+            "opacity": 1
+          },
+          "muscle": {
+            "visible": true,
+            "opacity": 0.85
+          },
+          "nerve": {
+            "visible": true,
+            "opacity": 1
+          },
+          "acupoint": {
+            "visible": false,
+            "opacity": 1
+          },
+          "specimen": {
+            "visible": false,
+            "opacity": 1
+          }
+        },
+        "bones": 29,
+        "muscles": 35,
+        "nerves": 30,
+        "skins": 1,
+        "acupoints": 0,
+        "specimens": 0,
+        "total": 95,
+        "unmapped": 3,
+        "unmappedNames": [
+          "(无名)",
+          "(无名)",
+          "(无名)"
+        ],
+        "helpers": 1,
+        "peelAlive": {
+          "1": 1,
+          "2": 24,
+          "3": 26,
+          "4": 15
+        },
+        "peelGone": {},
+        "opaque": 97,
+        "mOpacityMin": 0.85,
+        "mOpacityMax": 0.85,
+        "clippingMeshes": 95,
+        "planeConstant": 100000,
+        "planeNormal": [
+          0,
+          1,
+          0
+        ],
+        "colorCount": 22,
+        "colorHist": {
+          "D9A87C": 1,
+          "E8E2D4": 29,
+          "EF6B5C": 4,
+          "8F86E8": 3,
+          "9B2622": 3,
+          "C63A33": 2,
+          "F59A57": 2,
+          "D98A2B": 1,
+          "1B4E8E": 3,
+          "2A6CBA": 4,
+          "4FA3E8": 3,
+          "63C3D9": 3,
+          "635BC2": 3,
+          "ADA6F0": 2,
+          "4A4499": 1,
+          "A8650F": 1,
+          "E0B13A": 8,
+          "FFF0B8": 3,
+          "E06C9F": 9,
+          "7FB069": 6,
+          "9AA3AD": 5,
+          "8FA8D8": 2
+        }
+      },
+      "frame": "frames/4.1.png"
+    },
+    {
+      "id": "4.2",
+      "act": 4,
+      "actTitle": "改编码：神经支配着色",
+      "tc": "5:10",
+      "title": "点图例：尺神经支配区整片亮起",
+      "ops": [
+        [
+          "legend",
+          "尺神经"
+        ],
+        [
+          "wait",
+          1200
+        ]
+      ],
+      "after": null,
+      "say": "点一下尺神经，它支配的肌肉整片亮起来。这块区域受损，功能缺损的范围就是这一片——比说一句「尺神经支配手内在肌」直观得多。",
+      "runMs": 2499,
+      "error": null,
+      "ok": true,
+      "checks": [
+        {
+          "label": "高亮群已激活",
+          "ok": true,
+          "detail": "highlightGroup = ulnar"
+        },
+        {
+          "label": "非目标群被压暗",
+          "ok": true,
+          "detail": "最淡的肌肉 0.12"
+        },
+        {
+          "label": "目标群仍保持实心",
+          "ok": true,
+          "detail": "实心结构 97 → 42（尺神经区留下）"
+        }
+      ],
+      "state": {
+        "camPos": [
+          0,
+          0,
+          9.765
+        ],
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "dist": 9.765,
+        "up": [
+          0,
+          1,
+          0
+        ],
+        "viewKey": "palmar",
+        "selected": null,
+        "hovered": "median",
+        "isolate": false,
+        "colorMode": "nerve",
+        "highlightGroup": "ulnar",
+        "peelDepth": 0,
+        "peelExpanded": [],
+        "clip": {
+          "enabled": false,
+          "value": 0,
+          "flip": false
+        },
+        "activePreset": null,
+        "layers": {
+          "skin": {
+            "visible": true,
+            "opacity": 0.3
+          },
+          "bone": {
+            "visible": true,
+            "opacity": 1
+          },
+          "muscle": {
+            "visible": true,
+            "opacity": 0.85
+          },
+          "nerve": {
+            "visible": true,
+            "opacity": 1
+          },
+          "acupoint": {
+            "visible": false,
+            "opacity": 1
+          },
+          "specimen": {
+            "visible": false,
+            "opacity": 1
+          }
+        },
+        "bones": 29,
+        "muscles": 35,
+        "nerves": 30,
+        "skins": 1,
+        "acupoints": 0,
+        "specimens": 0,
+        "total": 95,
+        "unmapped": 3,
+        "unmappedNames": [
+          "(无名)",
+          "(无名)",
+          "(无名)"
+        ],
+        "helpers": 1,
+        "peelAlive": {
+          "1": 1,
+          "2": 24,
+          "3": 26,
+          "4": 15
+        },
+        "peelGone": {},
+        "opaque": 42,
+        "mOpacityMin": 0.12,
+        "mOpacityMax": 0.85,
+        "clippingMeshes": 95,
+        "planeConstant": 100000,
+        "planeNormal": [
+          0,
+          1,
+          0
+        ],
+        "colorCount": 22,
+        "colorHist": {
+          "D9A87C": 1,
+          "E8E2D4": 29,
+          "EF6B5C": 4,
+          "8F86E8": 3,
+          "9B2622": 3,
+          "C63A33": 2,
+          "F59A57": 2,
+          "D98A2B": 1,
+          "1B4E8E": 3,
+          "2A6CBA": 4,
+          "4FA3E8": 3,
+          "63C3D9": 3,
+          "635BC2": 3,
+          "ADA6F0": 2,
+          "4A4499": 1,
+          "A8650F": 1,
+          "E0B13A": 8,
+          "FFF0B8": 3,
+          "E06C9F": 9,
+          "7FB069": 6,
+          "9AA3AD": 5,
+          "8FA8D8": 2
+        }
+      },
+      "frame": "frames/4.2.png"
+    },
+    {
+      "id": "4.3",
+      "act": 4,
+      "actTitle": "改编码：神经支配着色",
+      "tc": "5:35",
+      "title": "切回功能群：两套配色是对齐的",
+      "ops": [
+        [
+          "legend",
+          "尺神经"
+        ],
+        [
+          "wait",
+          500
+        ],
+        [
+          "color",
+          "功能群"
+        ],
+        [
+          "wait",
+          1100
+        ]
+      ],
+      "after": null,
+      "say": "切回功能群。两套配色是刻意对齐的——正中对应屈肌、桡神经对应伸肌，切换的时候不用重新建立色觉映射，看着就顺。",
+      "runMs": 2851,
+      "error": null,
+      "ok": true,
+      "checks": [
+        {
+          "label": "高亮已取消",
+          "ok": true
+        },
+        {
+          "label": "回到功能群模式",
+          "ok": true
+        },
+        {
+          "label": "实心结构恢复",
+          "ok": true,
+          "detail": "42 → 96"
+        }
+      ],
+      "state": {
+        "camPos": [
+          0,
+          0,
+          9.765
+        ],
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "dist": 9.765,
+        "up": [
+          0,
+          1,
+          0
+        ],
+        "viewKey": "palmar",
+        "selected": null,
+        "hovered": "median",
+        "isolate": false,
+        "colorMode": "func",
+        "highlightGroup": null,
+        "peelDepth": 0,
+        "peelExpanded": [],
+        "clip": {
+          "enabled": false,
+          "value": 0,
+          "flip": false
+        },
+        "activePreset": null,
+        "layers": {
+          "skin": {
+            "visible": true,
+            "opacity": 0.3
+          },
+          "bone": {
+            "visible": true,
+            "opacity": 1
+          },
+          "muscle": {
+            "visible": true,
+            "opacity": 0.85
+          },
+          "nerve": {
+            "visible": true,
+            "opacity": 1
+          },
+          "acupoint": {
+            "visible": false,
+            "opacity": 1
+          },
+          "specimen": {
+            "visible": false,
+            "opacity": 1
+          }
+        },
+        "bones": 29,
+        "muscles": 35,
+        "nerves": 30,
+        "skins": 1,
+        "acupoints": 0,
+        "specimens": 0,
+        "total": 95,
+        "unmapped": 3,
+        "unmappedNames": [
+          "(无名)",
+          "(无名)",
+          "(无名)"
+        ],
+        "helpers": 1,
+        "peelAlive": {
+          "1": 1,
+          "2": 24,
+          "3": 26,
+          "4": 15
+        },
+        "peelGone": {},
+        "opaque": 96,
+        "mOpacityMin": 0.85,
+        "mOpacityMax": 0.85,
+        "clippingMeshes": 95,
+        "planeConstant": 100000,
+        "planeNormal": [
+          0,
+          1,
+          0
+        ],
+        "colorCount": 33,
+        "colorHist": {
+          "D9A87C": 1,
+          "E8E2D4": 29,
+          "EF6B5C": 4,
+          "9B2622": 2,
+          "C63A33": 1,
+          "F59A57": 1,
+          "C9526B": 1,
+          "8E2C40": 1,
+          "DE7C90": 1,
+          "1B4E8E": 1,
+          "2A6CBA": 3,
+          "4FA3E8": 2,
+          "63C3D9": 2,
+          "6577D6": 2,
+          "3A46A0": 1,
+          "252C6E": 1,
+          "8B9AE4": 1,
+          "BC3A6C": 1,
+          "8F274C": 2,
+          "E85C93": 1,
+          "F594B8": 1,
+          "A868D8": 1,
+          "7C3FAE": 1,
+          "C795EC": 1,
+          "34BFA4": 1,
+          "63DCC4": 1,
+          "1F8C77": 1,
+          "E0B13A": 8,
+          "FFF0B8": 3,
+          "E06C9F": 9,
+          "7FB069": 6,
+          "9AA3AD": 5,
+          "8FA8D8": 2
+        }
+      },
+      "frame": "frames/4.3.png"
+    },
+    {
+      "id": "4.4",
+      "act": 4,
+      "actTitle": "改编码：神经支配着色",
+      "tc": "5:55",
+      "title": "点一块结构：卡片里直接给出分组与神经",
+      "ops": [
+        [
+          "select",
+          "left pronator quadratus"
+        ],
+        [
+          "wait",
+          1300
+        ]
+      ],
+      "after": null,
+      "say": "任意点一块结构，卡片给出中文名、英文名、拉丁名，还有它属于哪个功能群、归哪根神经支配。门诊或者查房当场说，不用回头翻书。",
+      "runMs": 3127,
+      "error": null,
+      "ok": true,
+      "checks": [
+        {
+          "label": "结构已选中",
+          "ok": true
+        },
+        {
+          "label": "选中结构被亮青描边（像素级换了色）",
+          "ok": true,
+          "detail": "选中用独立色 #22D3EE，与所有群色都不撞"
+        },
+        {
+          "label": "信息卡已渲染",
+          "ok": true,
+          "detail": ".card"
+        }
+      ],
+      "state": {
+        "camPos": [
+          0,
+          0,
+          9.765
+        ],
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "dist": 9.765,
+        "up": [
+          0,
+          1,
+          0
+        ],
+        "viewKey": "palmar",
+        "selected": "left pronator quadratus",
+        "hovered": "median",
+        "isolate": false,
+        "colorMode": "func",
+        "highlightGroup": null,
+        "peelDepth": 0,
+        "peelExpanded": [],
+        "clip": {
+          "enabled": false,
+          "value": 0,
+          "flip": false
+        },
+        "activePreset": null,
+        "layers": {
+          "skin": {
+            "visible": true,
+            "opacity": 0.3
+          },
+          "bone": {
+            "visible": true,
+            "opacity": 1
+          },
+          "muscle": {
+            "visible": true,
+            "opacity": 0.85
+          },
+          "nerve": {
+            "visible": true,
+            "opacity": 1
+          },
+          "acupoint": {
+            "visible": false,
+            "opacity": 1
+          },
+          "specimen": {
+            "visible": false,
+            "opacity": 1
+          }
+        },
+        "bones": 29,
+        "muscles": 35,
+        "nerves": 30,
+        "skins": 1,
+        "acupoints": 0,
+        "specimens": 0,
+        "total": 95,
+        "unmapped": 6,
+        "unmappedNames": [
+          "(无名)",
+          "(无名)",
+          "(无名)",
+          "(无名)",
+          "(无名)",
+          "(无名)"
+        ],
+        "helpers": 1,
+        "peelAlive": {
+          "1": 1,
+          "2": 24,
+          "3": 26,
+          "4": 15
+        },
+        "peelGone": {},
+        "opaque": 98,
+        "mOpacityMin": 0.85,
+        "mOpacityMax": 0.85,
+        "clippingMeshes": 95,
+        "planeConstant": 100000,
+        "planeNormal": [
+          0,
+          1,
+          0
+        ],
+        "colorCount": 33,
+        "colorHist": {
+          "D9A87C": 1,
+          "E8E2D4": 29,
+          "EF6B5C": 4,
+          "9B2622": 2,
+          "C63A33": 1,
+          "F59A57": 1,
+          "C9526B": 1,
+          "8E2C40": 1,
+          "DE7C90": 1,
+          "1B4E8E": 1,
+          "2A6CBA": 3,
+          "4FA3E8": 2,
+          "63C3D9": 2,
+          "6577D6": 2,
+          "3A46A0": 1,
+          "252C6E": 1,
+          "8B9AE4": 1,
+          "BC3A6C": 1,
+          "8F274C": 2,
+          "E85C93": 1,
+          "F594B8": 1,
+          "A868D8": 1,
+          "7C3FAE": 1,
+          "C795EC": 1,
+          "34BFA4": 1,
+          "63DCC4": 1,
+          "1F8C77": 1,
+          "E0B13A": 8,
+          "FFF0B8": 6,
+          "E06C9F": 9,
+          "7FB069": 6,
+          "9AA3AD": 5,
+          "8FA8D8": 2
+        }
+      },
+      "frame": "frames/4.4.png"
+    },
+    {
+      "id": "5.1",
+      "act": 5,
+      "actTitle": "做不到的部分",
+      "tc": "6:05",
+      "title": "剖切面：横断面看层次关系",
+      "ops": [
+        [
+          "reset"
+        ],
+        [
+          "wait",
+          1800
+        ],
+        [
+          "clipOn"
+        ],
+        [
+          "wait",
+          600
+        ],
+        [
+          "clip",
+          0.6
+        ],
+        [
+          "wait",
+          1300
+        ]
+      ],
+      "after": null,
+      "say": "还有剖切面，可以直接做横断面看层次关系。到这儿为止，是它现在能做的事情。",
+      "runMs": 4973,
+      "error": null,
+      "ok": true,
+      "checks": [
+        {
+          "label": "裁剪面已挂到所有材质",
+          "ok": true,
+          "detail": "95 个材质带裁剪面"
+        },
+        {
+          "label": "平面位置确实随滑块移动（读平面常数）",
+          "ok": true,
+          "detail": "constant = -0.604234924316406"
+        }
+      ],
+      "state": {
+        "camPos": [
+          4.648,
+          1.521,
+          8.451
+        ],
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "dist": 9.765,
+        "up": [
+          0,
+          1,
+          0
+        ],
+        "viewKey": null,
+        "selected": "left pronator quadratus",
+        "hovered": "median",
+        "isolate": false,
+        "colorMode": "func",
+        "highlightGroup": null,
+        "peelDepth": 0,
+        "peelExpanded": [],
+        "clip": {
+          "enabled": true,
+          "value": 0.604234924316406,
+          "flip": false
+        },
+        "activePreset": null,
+        "layers": {
+          "skin": {
+            "visible": true,
+            "opacity": 0.3
+          },
+          "bone": {
+            "visible": true,
+            "opacity": 1
+          },
+          "muscle": {
+            "visible": true,
+            "opacity": 0.85
+          },
+          "nerve": {
+            "visible": true,
+            "opacity": 1
+          },
+          "acupoint": {
+            "visible": false,
+            "opacity": 1
+          },
+          "specimen": {
+            "visible": false,
+            "opacity": 1
+          }
+        },
+        "bones": 29,
+        "muscles": 35,
+        "nerves": 30,
+        "skins": 1,
+        "acupoints": 0,
+        "specimens": 0,
+        "total": 95,
+        "unmapped": 6,
+        "unmappedNames": [
+          "(无名)",
+          "(无名)",
+          "(无名)",
+          "(无名)",
+          "(无名)",
+          "(无名)"
+        ],
+        "helpers": 1,
+        "peelAlive": {
+          "1": 1,
+          "2": 24,
+          "3": 26,
+          "4": 15
+        },
+        "peelGone": {},
+        "opaque": 100,
+        "mOpacityMin": 0.85,
+        "mOpacityMax": 0.85,
+        "clippingMeshes": 95,
+        "planeConstant": -0.604234924316406,
+        "planeNormal": [
+          0,
+          1,
+          0
+        ],
+        "colorCount": 33,
+        "colorHist": {
+          "D9A87C": 1,
+          "E8E2D4": 29,
+          "EF6B5C": 4,
+          "9B2622": 2,
+          "C63A33": 1,
+          "F59A57": 1,
+          "C9526B": 1,
+          "8E2C40": 1,
+          "DE7C90": 1,
+          "1B4E8E": 1,
+          "2A6CBA": 3,
+          "4FA3E8": 2,
+          "63C3D9": 2,
+          "6577D6": 2,
+          "3A46A0": 1,
+          "252C6E": 1,
+          "8B9AE4": 1,
+          "BC3A6C": 1,
+          "8F274C": 2,
+          "E85C93": 1,
+          "F594B8": 1,
+          "A868D8": 1,
+          "7C3FAE": 1,
+          "C795EC": 1,
+          "34BFA4": 1,
+          "63DCC4": 1,
+          "1F8C77": 1,
+          "E0B13A": 8,
+          "FFF0B8": 6,
+          "E06C9F": 9,
+          "7FB069": 6,
+          "9AA3AD": 5,
+          "8FA8D8": 2
+        }
+      },
+      "frame": "frames/5.1.png"
+    },
+    {
+      "id": "5.2",
+      "act": 5,
+      "actTitle": "做不到的部分",
+      "tc": "6:25",
+      "title": "反向：看另一半",
+      "ops": [
+        [
+          "clipFlip"
+        ],
+        [
+          "wait",
+          1200
+        ]
+      ],
+      "after": null,
+      "say": "反向，看另一半。",
+      "runMs": 2555,
+      "error": null,
+      "ok": true,
+      "checks": [
+        {
+          "label": "翻转状态已变",
+          "ok": true,
+          "detail": "flip false → true"
+        },
+        {
+          "label": "平面法线真的反了",
+          "ok": true,
+          "detail": "法线 [0,1,0] → [0,-1,0]"
+        }
+      ],
+      "state": {
+        "camPos": [
+          4.648,
+          1.521,
+          8.451
+        ],
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "dist": 9.765,
+        "up": [
+          0,
+          1,
+          0
+        ],
+        "viewKey": null,
+        "selected": "left pronator quadratus",
+        "hovered": "median",
+        "isolate": false,
+        "colorMode": "func",
+        "highlightGroup": null,
+        "peelDepth": 0,
+        "peelExpanded": [],
+        "clip": {
+          "enabled": true,
+          "value": 0.604234924316406,
+          "flip": true
+        },
+        "activePreset": null,
+        "layers": {
+          "skin": {
+            "visible": true,
+            "opacity": 0.3
+          },
+          "bone": {
+            "visible": true,
+            "opacity": 1
+          },
+          "muscle": {
+            "visible": true,
+            "opacity": 0.85
+          },
+          "nerve": {
+            "visible": true,
+            "opacity": 1
+          },
+          "acupoint": {
+            "visible": false,
+            "opacity": 1
+          },
+          "specimen": {
+            "visible": false,
+            "opacity": 1
+          }
+        },
+        "bones": 29,
+        "muscles": 35,
+        "nerves": 30,
+        "skins": 1,
+        "acupoints": 0,
+        "specimens": 0,
+        "total": 95,
+        "unmapped": 6,
+        "unmappedNames": [
+          "(无名)",
+          "(无名)",
+          "(无名)",
+          "(无名)",
+          "(无名)",
+          "(无名)"
+        ],
+        "helpers": 1,
+        "peelAlive": {
+          "1": 1,
+          "2": 24,
+          "3": 26,
+          "4": 15
+        },
+        "peelGone": {},
+        "opaque": 100,
+        "mOpacityMin": 0.85,
+        "mOpacityMax": 0.85,
+        "clippingMeshes": 95,
+        "planeConstant": 0.604234924316406,
+        "planeNormal": [
+          0,
+          -1,
+          0
+        ],
+        "colorCount": 33,
+        "colorHist": {
+          "D9A87C": 1,
+          "E8E2D4": 29,
+          "EF6B5C": 4,
+          "9B2622": 2,
+          "C63A33": 1,
+          "F59A57": 1,
+          "C9526B": 1,
+          "8E2C40": 1,
+          "DE7C90": 1,
+          "1B4E8E": 1,
+          "2A6CBA": 3,
+          "4FA3E8": 2,
+          "63C3D9": 2,
+          "6577D6": 2,
+          "3A46A0": 1,
+          "252C6E": 1,
+          "8B9AE4": 1,
+          "BC3A6C": 1,
+          "8F274C": 2,
+          "E85C93": 1,
+          "F594B8": 1,
+          "A868D8": 1,
+          "7C3FAE": 1,
+          "C795EC": 1,
+          "34BFA4": 1,
+          "63DCC4": 1,
+          "1F8C77": 1,
+          "E0B13A": 8,
+          "FFF0B8": 6,
+          "E06C9F": 9,
+          "7FB069": 6,
+          "9AA3AD": 5,
+          "8FA8D8": 2
+        }
+      },
+      "frame": "frames/5.2.png"
+    },
+    {
+      "id": "5.3",
+      "act": 5,
+      "actTitle": "做不到的部分",
+      "tc": "6:40",
+      "title": "主动交代边界与解剖变异",
+      "ops": [
+        [
+          "clipOff"
+        ],
+        [
+          "wait",
+          800
+        ],
+        [
+          "tab",
+          "结构"
+        ],
+        [
+          "wait",
+          900
+        ]
+      ],
+      "after": null,
+      "say": "接下来我说它做不到的。神经已经是公开解剖数据集里的真实几何，不再是示意线了——但粒度比解剖书粗：手背指背支在源数据里是整束，正中神经返支源数据里根本没有、那一段是补的示意。屈肌支持带、前臂骨间膜、三角骨仍然缺；体表那层壳是算出来的，不能拿来量围度。更要紧的是它不体现解剖变异——Martin-Gruber 吻合、副肌、神经走行变异都不在里面。所以它是沟通工具，不是诊断依据；真用到临床上，神经走行必须人工核对。",
+      "runMs": 3144,
+      "error": null,
+      "ok": true,
+      "checks": [
+        {
+          "label": "剖切已关闭",
+          "ok": true
+        },
+        {
+          "label": "结构数回到完整（画面收干净）",
+          "ok": true,
+          "detail": "肌 35 / 神经 30 / 体表 1"
+        },
+        {
+          "label": "「待补结构」提示可见（主动把缺口写在界面上）",
+          "ok": true,
+          "detail": ".note"
+        }
+      ],
+      "state": {
+        "camPos": [
+          4.648,
+          1.521,
+          8.451
+        ],
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "dist": 9.765,
+        "up": [
+          0,
+          1,
+          0
+        ],
+        "viewKey": null,
+        "selected": "left pronator quadratus",
+        "hovered": "median",
+        "isolate": false,
+        "colorMode": "func",
+        "highlightGroup": null,
+        "peelDepth": 0,
+        "peelExpanded": [],
+        "clip": {
+          "enabled": false,
+          "value": 0.604234924316406,
+          "flip": true
+        },
+        "activePreset": null,
+        "layers": {
+          "skin": {
+            "visible": true,
+            "opacity": 0.3
+          },
+          "bone": {
+            "visible": true,
+            "opacity": 1
+          },
+          "muscle": {
+            "visible": true,
+            "opacity": 0.85
+          },
+          "nerve": {
+            "visible": true,
+            "opacity": 1
+          },
+          "acupoint": {
+            "visible": false,
+            "opacity": 1
+          },
+          "specimen": {
+            "visible": false,
+            "opacity": 1
+          }
+        },
+        "bones": 29,
+        "muscles": 35,
+        "nerves": 30,
+        "skins": 1,
+        "acupoints": 0,
+        "specimens": 0,
+        "total": 95,
+        "unmapped": 6,
+        "unmappedNames": [
+          "(无名)",
+          "(无名)",
+          "(无名)",
+          "(无名)",
+          "(无名)",
+          "(无名)"
+        ],
+        "helpers": 1,
+        "peelAlive": {
+          "1": 1,
+          "2": 24,
+          "3": 26,
+          "4": 15
+        },
+        "peelGone": {},
+        "opaque": 98,
+        "mOpacityMin": 0.85,
+        "mOpacityMax": 0.85,
+        "clippingMeshes": 95,
+        "planeConstant": 100000,
+        "planeNormal": [
+          0,
+          1,
+          0
+        ],
+        "colorCount": 33,
+        "colorHist": {
+          "D9A87C": 1,
+          "E8E2D4": 29,
+          "EF6B5C": 4,
+          "9B2622": 2,
+          "C63A33": 1,
+          "F59A57": 1,
+          "C9526B": 1,
+          "8E2C40": 1,
+          "DE7C90": 1,
+          "1B4E8E": 1,
+          "2A6CBA": 3,
+          "4FA3E8": 2,
+          "63C3D9": 2,
+          "6577D6": 2,
+          "3A46A0": 1,
+          "252C6E": 1,
+          "8B9AE4": 1,
+          "BC3A6C": 1,
+          "8F274C": 2,
+          "E85C93": 1,
+          "F594B8": 1,
+          "A868D8": 1,
+          "7C3FAE": 1,
+          "C795EC": 1,
+          "34BFA4": 1,
+          "63DCC4": 1,
+          "1F8C77": 1,
+          "E0B13A": 8,
+          "FFF0B8": 6,
+          "E06C9F": 9,
+          "7FB069": 6,
+          "9AA3AD": 5,
+          "8FA8D8": 2
+        }
+      },
+      "frame": "frames/5.3.png"
+    },
+    {
+      "id": "5.4",
+      "act": 5,
+      "actTitle": "做不到的部分",
+      "tc": "7:05",
+      "title": "收尾：回到起始画面",
+      "ops": [
+        [
+          "tab",
+          "系统"
+        ],
+        [
+          "wait",
+          600
+        ],
+        [
+          "select",
+          null
+        ],
+        [
+          "wait",
+          500
+        ],
+        [
+          "reset"
+        ],
+        [
+          "wait",
+          2000
+        ]
+      ],
+      "after": null,
+      "say": "回到起始状态。谢谢。",
+      "runMs": 4521,
+      "error": null,
+      "ok": true,
+      "checks": [
+        {
+          "label": "无选中（收干净）",
+          "ok": true
+        },
+        {
+          "label": "回到初始机位",
+          "ok": true,
+          "detail": "[0,0,0]"
+        },
+        {
+          "label": "剖切 / 隔离 / 剥离均已复位",
+          "ok": true,
+          "detail": "clip=false isolate=false peel=0"
+        },
+        {
+          "label": "主面板已回到系统页",
+          "ok": true,
+          "detail": ".panel"
+        }
+      ],
+      "state": {
+        "camPos": [
+          4.648,
+          1.521,
+          8.451
+        ],
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "dist": 9.765,
+        "up": [
+          0,
+          1,
+          0
+        ],
+        "viewKey": null,
+        "selected": null,
+        "hovered": "median",
+        "isolate": false,
+        "colorMode": "func",
+        "highlightGroup": null,
+        "peelDepth": 0,
+        "peelExpanded": [],
+        "clip": {
+          "enabled": false,
+          "value": 0.604234924316406,
+          "flip": true
+        },
+        "activePreset": null,
+        "layers": {
+          "skin": {
+            "visible": true,
+            "opacity": 0.3
+          },
+          "bone": {
+            "visible": true,
+            "opacity": 1
+          },
+          "muscle": {
+            "visible": true,
+            "opacity": 0.85
+          },
+          "nerve": {
+            "visible": true,
+            "opacity": 1
+          },
+          "acupoint": {
+            "visible": false,
+            "opacity": 1
+          },
+          "specimen": {
+            "visible": false,
+            "opacity": 1
+          }
+        },
+        "bones": 29,
+        "muscles": 35,
+        "nerves": 30,
+        "skins": 1,
+        "acupoints": 0,
+        "specimens": 0,
+        "total": 95,
+        "unmapped": 3,
+        "unmappedNames": [
+          "(无名)",
+          "(无名)",
+          "(无名)"
+        ],
+        "helpers": 1,
+        "peelAlive": {
+          "1": 1,
+          "2": 24,
+          "3": 26,
+          "4": 15
+        },
+        "peelGone": {},
+        "opaque": 96,
+        "mOpacityMin": 0.85,
+        "mOpacityMax": 0.85,
+        "clippingMeshes": 95,
+        "planeConstant": 100000,
+        "planeNormal": [
+          0,
+          1,
+          0
+        ],
+        "colorCount": 33,
+        "colorHist": {
+          "D9A87C": 1,
+          "E8E2D4": 29,
+          "EF6B5C": 4,
+          "9B2622": 2,
+          "C63A33": 1,
+          "F59A57": 1,
+          "C9526B": 1,
+          "8E2C40": 1,
+          "DE7C90": 1,
+          "1B4E8E": 1,
+          "2A6CBA": 3,
+          "4FA3E8": 2,
+          "63C3D9": 2,
+          "6577D6": 2,
+          "3A46A0": 1,
+          "252C6E": 1,
+          "8B9AE4": 1,
+          "BC3A6C": 1,
+          "8F274C": 2,
+          "E85C93": 1,
+          "F594B8": 1,
+          "A868D8": 1,
+          "7C3FAE": 1,
+          "C795EC": 1,
+          "34BFA4": 1,
+          "63DCC4": 1,
+          "1F8C77": 1,
+          "E0B13A": 8,
+          "FFF0B8": 3,
+          "E06C9F": 9,
+          "7FB069": 6,
+          "9AA3AD": 5,
+          "8FA8D8": 2
+        }
+      },
+      "frame": "frames/5.4.png"
+    }
+  ],
+  "summary": {
+    "pass": 24,
+    "fail": 0,
+    "totalSec": 92.3
+  }
+}

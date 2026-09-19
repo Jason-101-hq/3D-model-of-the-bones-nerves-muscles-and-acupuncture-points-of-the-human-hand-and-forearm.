@@ -1,0 +1,347 @@
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; margin: 0; }
+body {
+  font: 13px/1.6 -apple-system, "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  color: #23201c;
+  background: #f4f2ee;
+}
+
+.app { display: flex; height: 100%; }
+.stage { position: relative; flex: 1; min-width: 0; }
+.stage canvas { display: block; user-select: none; touch-action: none; }
+
+/* ---------- 右侧控制面板 ---------- */
+.panel {
+  width: 296px;
+  flex: none;
+  padding: 18px 16px;
+  overflow-y: auto;
+  background: #fbfaf7;
+  border-left: 1px solid #e2ded4;
+}
+.brand { margin-bottom: 14px; }
+.brand b { display: block; font-size: 15px; font-weight: 500; }
+.brand span { font-size: 12px; color: #8b857a; }
+
+.tabs { display: flex; gap: 6px; margin-bottom: 14px; }
+.tabs button {
+  flex: 1; padding: 6px 0; font-size: 12px; cursor: pointer;
+  border: 1px solid #e2ded4; background: #fff; border-radius: 7px; color: #6d675d;
+}
+.tabs button.on { background: #23201c; color: #fff; border-color: #23201c; }
+
+.row { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.row.clip { flex-wrap: wrap; }
+.sw { display: flex; align-items: center; gap: 7px; cursor: pointer; user-select: none; }
+.sw i { width: 11px; height: 11px; border-radius: 3px; display: inline-block; border: 1px solid rgba(0,0,0,.12); }
+.sl { flex: 1; min-width: 90px; accent-color: #b4553c; }
+.row em { font-style: normal; font-size: 11px; color: #8b857a; width: 30px; text-align: right; }
+
+.mini {
+  font-size: 11px; padding: 3px 8px; cursor: pointer; font-family: inherit;
+  border: 1px solid #e2ded4; background: #fff; border-radius: 6px; color: #6d675d;
+}
+.sep { height: 1px; background: #e8e4da; margin: 14px 0; }
+.sub { font-size: 11px; color: #8b857a; margin-bottom: 8px; letter-spacing: .04em; }
+
+/* ---------- 肌肉着色编码 ---------- */
+.mode { display: flex; gap: 4px; padding: 3px; margin-bottom: 10px; background: #f0ede6; border-radius: 8px; }
+.mode button {
+  flex: 1; padding: 5px 0; font-size: 12px; cursor: pointer; font-family: inherit;
+  border: none; background: transparent; border-radius: 6px; color: #6d675d;
+}
+.mode button.on { background: #fff; color: #23201c; box-shadow: 0 1px 2px rgba(35,32,28,.10); }
+
+.legend { display: flex; flex-direction: column; gap: 1px; }
+.legend .lg {
+  display: flex; align-items: center; gap: 8px; width: 100%; text-align: left;
+  padding: 5px 7px; cursor: pointer; font-family: inherit; font-size: 12.5px;
+  border: none; background: transparent; border-radius: 6px; color: #3c3730;
+}
+.legend .lg:hover { background: #f0ede6; }
+.legend .lg.on { background: #e0f5f9; color: #0b6470; }
+.legend .lg i { width: 12px; height: 12px; border-radius: 3px; flex: none; border: 1px solid rgba(0,0,0,.14); }
+.legend .lg em { font-style: normal; margin-left: auto; font-size: 11px; color: #a49d91; }
+.hint { font-size: 11px; color: #a49d91; margin-top: 7px; line-height: 1.5; }
+
+/* 逐层剥离：步骤本身编码解剖层次，所以列出来而不是做成滑块 */
+.peelhead { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 8px; }
+.peelacts { display: flex; gap: 4px; }
+.peelwrap { display: flex; flex-direction: column; gap: 5px; }
+.peelrow {
+  display: flex; align-items: stretch; overflow: hidden;
+  border: 1px solid #e4e0d7; background: #fff; border-radius: 7px;
+}
+.peelrow > button { border: none; background: none; font-family: inherit; cursor: pointer; }
+.peelmain {
+  flex: 1; display: flex; align-items: center; gap: 8px;
+  padding: 7px 4px 7px 9px; text-align: left;
+  font-size: 12px; color: #4a453d;
+}
+.peelmain em {
+  font-style: normal; flex: none; width: 17px; height: 17px; border-radius: 50%;
+  background: #f1eee7; color: #8b857a; font-size: 10px;
+  display: grid; place-items: center;
+}
+.peelmain b { margin-left: auto; font-weight: 400; font-size: 11px; color: #a8a196; }
+.peelmain:hover { background: #f7f5f0; }
+.peelrow.exp {
+  flex: none; width: 42px; display: grid; place-items: center;
+  border-left: 1px solid #eeeadf; font-size: 10.5px; color: #a8a196;
+}
+.peelrow.exp:hover { background: #f7f5f0; color: #6d675d; }
+
+/* 已剥去的层：删除线 + 灰底，一眼能数出剥了几层 */
+.peelrow.done { background: #f7f5f0; }
+.peelrow.done .peelmain span { color: #a8a196; text-decoration: line-through; }
+.peelrow.done .peelmain em { background: #e2ddd1; color: #7d776d; }
+
+.peelgroup {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  padding: 4px 2px 0 4px; font-size: 11px; color: #8b857a; letter-spacing: .03em;
+}
+.peelgroup em { font-style: normal; margin-left: 6px; color: #b3aca0; }
+.peelnote { font-size: 11px; color: #a49d91; margin-top: 7px; line-height: 1.5; }
+
+.presets { display: flex; flex-wrap: wrap; gap: 6px; }
+.presets .p {
+  font-size: 12px; padding: 5px 9px; cursor: pointer; font-family: inherit;
+  border: 1px solid #e2ded4; background: #fff; border-radius: 14px; color: #4a453d;
+}
+.presets .p:hover { border-color: #b4553c; color: #b4553c; }
+.presets .p.on { background: #b4553c; border-color: #b4553c; color: #fff; }
+
+.search {
+  width: 100%; padding: 7px 10px; margin-bottom: 10px; font-family: inherit; font-size: 12px;
+  border: 1px solid #e2ded4; border-radius: 7px; background: #fff; outline: none;
+}
+.search:focus { border-color: #b4553c; }
+
+.list { display: flex; flex-direction: column; gap: 2px; }
+.li {
+  display: flex; align-items: baseline; gap: 7px; width: 100%; text-align: left;
+  padding: 6px 8px; cursor: pointer; font-family: inherit; font-size: 13px;
+  border: none; background: transparent; border-radius: 6px; color: #23201c;
+}
+.li:hover { background: #f0ede6; }
+.li.on { background: #f2e3dd; }
+.li em { font-style: normal; font-size: 11px; color: #a49d91; margin-left: auto; }
+.dot { width: 8px; height: 8px; border-radius: 2px; flex: none; border: 1px solid rgba(0,0,0,.12); }
+.empty, .note { font-size: 11px; color: #a49d91; padding: 8px 2px; }
+.note { border-top: 1px solid #e8e4da; margin-top: 12px; }
+
+/* ---------- 神经分群索引（「结构」页签，未输入时显示） ---------- */
+/* 30 条神经分 5 群；群的标题条刻意做得比条目更弱，读起来是「分组」而不是「又是几条」 */
+.nidx { gap: 0; }
+.nidx > div + div { margin-top: 10px; }
+.ghead {
+  display: flex; align-items: center; gap: 6px; padding: 3px 8px 5px;
+  font-size: 11px; color: #8b857a; letter-spacing: .04em;
+  border-bottom: 1px solid #e8e4da; margin-bottom: 3px;
+}
+.ghead i { width: 9px; height: 9px; border-radius: 2px; flex: none; }
+.ghead em { font-style: normal; margin-left: auto; font-size: 10px; color: #b3aca0; }
+/* 来源标记：整条示意 / 部分示意。必须一眼可辨 —— 两类几何在画面上长得一样 */
+.stag {
+  font-style: normal; font-size: 10px; line-height: 1; padding: 2px 5px; margin-left: 4px;
+  border-radius: 4px; background: #f0ede6; color: #8b857a;
+  border: 1px solid #e2ded4; white-space: nowrap;
+}
+
+/* 数据署名。CC BY-SA 的署名义务覆盖整个作品，所以常驻在面板底部 */
+.attrib {
+  margin-top: 16px; padding-top: 10px; border-top: 1px solid #e8e4da;
+  font-size: 10.5px; line-height: 1.65; color: #a49d91;
+}
+
+/* ---------- 结构信息卡 ---------- */
+.card {
+  position: absolute; left: 20px; bottom: 20px; width: 316px; padding: 16px 18px;
+  background: rgba(255,255,255,.96); border: 1px solid #e2ded4;
+  border-radius: 12px; box-shadow: 0 6px 24px rgba(35,32,28,.10);
+  /* 加进「神经支配 / 支配的肌肉 / 感觉支配区」三节之后，卡片高度会随选中项变化很大。
+     给一个高度上限并允许内部滚动，免得选到一条管几十块肌肉的神经时卡片顶出屏幕。 */
+  max-height: calc(100% - 40px); overflow-y: auto; overscroll-behavior: contain;
+}
+.cardhead { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.tag { font-size: 11px; padding: 2px 8px; border-radius: 10px; color: #2c2823; }
+.x { border: none; background: transparent; font-size: 18px; cursor: pointer; color: #a49d91; line-height: 1; }
+.card h2 { margin: 0 0 10px; font-size: 17px; font-weight: 500; }
+.names { display: flex; flex-direction: column; gap: 4px; margin-bottom: 10px; }
+.names > div { display: flex; gap: 8px; font-size: 12px; }
+.names label { color: #a49d91; width: 32px; flex: none; }
+.names span { color: #4a453d; }
+.card p { margin: 0 0 10px; font-size: 12.5px; color: #5c564d; line-height: 1.65; }
+.credit { font-size: 10.5px; color: #b3aca0; border-top: 1px solid #eeeae1; padding-top: 8px; }
+
+/* ---------- 信息卡里的「关联」区块（神经支配 / 支配的肌肉 / 感觉区） ---------- */
+.sec { border-top: 1px solid #eeeae1; margin-top: 11px; padding-top: 10px; }
+.sec h3 {
+  display: flex; align-items: baseline; gap: 7px; margin: 0 0 8px;
+  font-size: 12px; font-weight: 500; color: #3b3731; letter-spacing: .02em;
+}
+.sec h3 em { font-style: normal; font-size: 10.5px; color: #a49d91; font-weight: 400; }
+.iref { padding: 6px 9px 8px; border-radius: 7px; background: #faf8f4; margin-bottom: 6px; }
+/* 变异条目换底色：它和典型条目并排时，靠底色区分「有这回事」与「大多数人是这样」 */
+.iref.alt { background: #fdf5ec; }
+.iref .jump {
+  display: inline-flex; align-items: center; gap: 3px; padding: 0;
+  border: none; background: transparent; font: inherit;
+  font-size: 12.5px; font-weight: 500; color: #b4553c; cursor: pointer;
+}
+.iref .jump i { font-style: normal; opacity: .5; font-weight: 400; }
+.iref .jump:hover { text-decoration: underline; }
+.iref .zname { font-size: 12.5px; font-weight: 500; color: #4a453d; }
+/*
+ * 「解剖登记」的皮区：解剖上确定归这条神经，但图谱里没有那片皮下面的几何，
+ * 选中它时高亮不到那片皮。所以必须与几何验证过的区一眼可分 —— 虚框 + 小标签，
+ * 规矩与进针层次表的注解层相同（实心条 vs 虚线条）。混成一样的样式，
+ * 会让人以为「选中它就能在图上指出那片皮肤」。
+ */
+.iref.anno { background: #f7f5f0; border: 1px dashed #ddd7cb; }
+.iref.anno .zname { color: #7d776e; }
+.iref .atag {
+  font-style: normal; font-size: 9.5px; margin-left: 5px; padding: 1px 5px;
+  color: #8a8377; background: #f1eee8; border: 1px solid #e3ded4; border-radius: 8px;
+  white-space: nowrap;
+}
+/*
+ * 主干（正中／尺／桡）卡片上的「经 XX」标签。
+ * 皮区在数据里登记在**分支**的几何上（图谱在分叉处把神经切成若干独立对象），
+ * 汇总到主干卡片时若不标出来，会让人以为「主干自己长成了那一片」。
+ * 刻意用**青绿**而不是上面那个灰标签：它不是「可信度打折」，只是层级标注。
+ */
+.iref .zbranch {
+  font-style: normal; font-size: 9.5px; margin-left: 5px; padding: 1px 5px;
+  color: #0b6b62; background: #e8f4f2; border: 1px solid #cbe6e2; border-radius: 8px;
+  white-space: nowrap;
+}
+.badges { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
+.pill {
+  font-style: normal; font-size: 10px; line-height: 1.6;
+  padding: 1px 6px; border-radius: 9px; background: #eeeae1; color: #6b655c;
+}
+.pill.m { background: #e2efe7; color: #3d6a51; }
+.pill.s { background: #e7ecf6; color: #405377; }
+.pill.v { background: #fbe1d5; color: #9f4b2c; }
+.pill.t { background: transparent; color: #a49d91; padding: 1px 0; }
+.iref p { margin: 5px 0 0; font-size: 11.5px; color: #6f6960; line-height: 1.55; }
+.sec .hint { margin-top: 3px; }
+/* 「露出它」按钮：这是卡片里唯一的**动作**（其余都是跳转），所以给足实心感 */
+.sec .act {
+  display: block; width: 100%; text-align: left; padding: 7px 10px;
+  font: inherit; font-size: 12px; color: #6b4a1f; cursor: pointer;
+  background: #fbeed6; border: 1px solid #eed9b0; border-radius: 7px;
+}
+.sec .act:hover { background: #f7e5c6; }
+
+/* ---------- 穴位的进针层次尺 ---------- */
+.depth { display: flex; flex-direction: column; gap: 5px; }
+.depth .drow { display: grid; grid-template-columns: 62px 40px 1fr; align-items: center; gap: 7px; }
+/* 条长 ∝ 深度：不必比数字就能看出哪层浅、哪层深 */
+.depth .dbar {
+  height: 8px; border-radius: 4px; background: #efebe2; overflow: hidden; display: block;
+}
+.depth .dbar i { display: block; height: 100%; background: #0f9b8e; border-radius: 4px; }
+.depth b { font-size: 10.5px; font-weight: 500; color: #0f9b8e; text-align: right; }
+.depth .dname { font-size: 11.5px; color: #5c564d; line-height: 1.4; }
+/*
+ * 注解层：深度不是量出来的，所以条子做成斜纹虚线并去掉实心头的分量，再挂一个小标签。
+ * 它与实测层必须一眼可分 —— 否则「6mm」这种大致方位会被当成实测值读走。
+ */
+.depth .drow.anno .dbar {
+  background: repeating-linear-gradient(135deg, #f3f0ea 0 3px, #e4dfd5 3px 6px);
+}
+.depth .drow.anno .dbar i { background: #b8cfcb; }
+.depth .drow.anno b { color: #8aa8a4; }
+.depth .drow.anno .dname { color: #7d776e; }
+.depth .atag {
+  font-style: normal; font-size: 9.5px; margin-left: 5px; padding: 1px 5px;
+  color: #8a8377; background: #f1eee8; border: 1px solid #e3ded4; border-radius: 8px;
+  white-space: nowrap;
+}
+.pills { display: flex; flex-wrap: wrap; gap: 5px; }
+.apill {
+  display: inline-flex; align-items: center; gap: 4px; padding: 4px 9px;
+  font: inherit; font-size: 12px; color: #0b6b62; cursor: pointer;
+  background: #e8f4f2; border: 1px solid #cbe6e2; border-radius: 14px;
+}
+.apill:hover { background: #dbeeeb; }
+.apill em { font-style: normal; font-size: 10px; color: #7fa8a3; }
+.acuhint { margin: 2px 0 8px; }
+
+/*
+ * 标本对照标签：独占一行、紫底。它与上面的深度值来源不同（那是本模型的取值，
+ * 这是真人标本的实测区间），所以必须换行、换色，不能被并排读成同一个数。
+ */
+.depth .spcmp {
+  display: block; width: fit-content; margin-top: 3px;
+  font-style: normal; font-size: 9.5px; padding: 1px 6px;
+  color: #6D28D9; background: #f2ecfe; border: 1px solid #ded0fa; border-radius: 8px;
+  cursor: help;
+}
+
+/* 标本层说明：同样在图层行下方，但左侧压一道紫线，和穴位说明区分开 */
+.spechint {
+  margin: 2px 0 8px; padding-left: 8px;
+  border-left: 2px solid #8B5CF6;
+}
+.spechint b { color: #6D28D9; }
+
+/*
+ * 体表层说明：压一道暖米色的线（与该层配色同源）。
+ * 它比另两条更啰嗦 —— 因为「这层是算出来的」这件事必须当场讲完，
+ * 否则用户会拿它去量围度、判断胖瘦，而它没有那个精度。
+ */
+.skinhint {
+  margin: 2px 0 8px; padding-left: 8px;
+  border-left: 2px solid #D9A87C;
+}
+.skinhint b { color: #A2662F; }
+
+/* ---------- 画布上的视角工具条 ---------- */
+.hud {
+  position: absolute; top: 14px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 7px;
+  pointer-events: none; max-width: calc(100% - 32px);
+}
+.vbar {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 3px; padding: 3px;
+  background: rgba(255,255,255,.94); border: 1px solid #e2ded4;
+  border-radius: 9px; box-shadow: 0 2px 10px rgba(35,32,28,.08);
+  pointer-events: auto;
+}
+.vbar .v {
+  padding: 5px 10px; font-size: 12px; cursor: pointer; font-family: inherit;
+  border: none; background: transparent; border-radius: 6px; color: #4a453d;
+  white-space: nowrap;
+}
+.vbar .v:hover { background: #f0ede6; }
+.vbar .v.on { background: #23201c; color: #fff; }
+.tips {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 3px 11px;
+  font-size: 11px; color: #8b857a; text-align: center;
+}
+.tips b { color: #b4553c; font-weight: 500; }
+
+/* ---------- 悬停名称浮标 ---------- */
+.hlabel {
+  position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+  display: flex; align-items: baseline; gap: 8px; padding: 6px 14px;
+  background: rgba(35,32,28,.9); border-radius: 20px; pointer-events: none;
+  max-width: 56%;
+}
+.hlabel b { color: #fff; font-size: 13px; font-weight: 500; }
+.hlabel span { color: #b9b2a6; font-size: 11px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* 图例里的组内色阶条 */
+.legend .lg i.ramp { width: 24px; height: 12px; border-radius: 3px; }
+
+@media (max-width: 860px) {
+  .app { flex-direction: column; }
+  .panel { width: 100%; border-left: none; border-top: 1px solid #e2ded4; max-height: 44%; }
+  .card { width: calc(100% - 40px); }
+  .hud { top: 8px; }
+  .tips { display: none; }
+  .hlabel { max-width: 88%; bottom: 78px; }
+}

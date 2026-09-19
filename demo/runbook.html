@@ -1,0 +1,1261 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>三系统解剖模型 · 五幕演示运行手册</title>
+<style>
+  :root{
+    --bg:#f6f5f2; --card:#fff; --ink:#1c1a17; --ink2:#57534b; --ink3:#8a8479;
+    --line:#e3ded4; --accent:#9a3412; --accent2:#b45309; --ok:#15803d; --no:#b91c1c;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font:15px/1.7 -apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    -webkit-font-smoothing:antialiased
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px 96px}
+
+  /* ---------- 封面 ---------- */
+  .cover{padding:64px 0 40px;border-bottom:1px solid var(--line)}
+  .kicker{font:600 12px/1 var(--mono);letter-spacing:.18em;color:var(--accent);text-transform:uppercase}
+  .cover h1{margin:14px 0 10px;font-size:40px;line-height:1.25;letter-spacing:-.01em;font-weight:700}
+  .cover .sub{margin:0;color:var(--ink2);font-size:17px;max-width:62ch}
+  .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);
+    margin-top:32px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .facts div{background:var(--card);padding:16px 18px}
+  .facts b{display:block;font-size:26px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+  .facts span{display:block;margin-top:3px;font-size:12px;color:var(--ink3)}
+  .facts .hi b{color:var(--ok)}
+
+  /* ---------- 开演前 ---------- */
+  .prep{margin:36px 0 8px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px 26px}
+  .prep h2{margin:0 0 14px;font-size:17px;font-weight:650}
+  .prep ol{margin:0;padding-left:20px;color:var(--ink2)}
+  .prep li{margin:7px 0}
+  .prep code{font:13px/1.5 var(--mono);background:#f0ede6;padding:2px 6px;border-radius:5px;color:var(--ink)}
+  .prep .warn{margin-top:16px;padding:12px 14px;border-left:3px solid var(--accent2);
+    background:#fdf6ec;border-radius:0 8px 8px 0;color:#7c3f06;font-size:14px}
+
+  /* ---------- 整片录像 ---------- */
+  .vid{margin:30px 0 6px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px 26px}
+  .vid h2{margin:0 0 8px;font-size:17px;font-weight:650}
+  .vid p{margin:0 0 16px;color:var(--ink2);font-size:14px;max-width:82ch}
+  .vid video{width:100%;max-width:920px;display:block;border-radius:10px;border:1px solid var(--line);background:#000}
+  .vid .vfacts{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:14px;font:12.5px/1.6 var(--mono);color:var(--ink3)}
+
+  /* ---------- 目录 ---------- */
+  nav.toc{display:flex;flex-wrap:wrap;gap:8px;margin:30px 0 8px}
+  nav.toc a{display:inline-block;padding:7px 13px;border:1px solid var(--line);border-radius:999px;
+    background:var(--card);color:var(--ink2);text-decoration:none;font-size:13px}
+  nav.toc a:hover{border-color:var(--accent);color:var(--accent)}
+
+  /* ---------- 幕 ---------- */
+  .act{margin-top:56px;scroll-margin-top:20px}
+  .acthead{display:flex;gap:18px;align-items:flex-start;padding-bottom:18px;border-bottom:2px solid var(--ink)}
+  .actno{flex:none;width:46px;height:46px;border-radius:12px;background:var(--ink);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700}
+  .acthead h2{margin:0;font-size:24px;font-weight:680;letter-spacing:-.01em}
+  .range{margin:5px 0 0;font:12px/1.6 var(--mono);color:var(--ink3)}
+  .intent{margin:9px 0 0;color:var(--ink2);max-width:78ch;font-size:14.5px}
+
+  /* ---------- 拍后动作 ---------- */
+  .afterhint{margin:14px 0 6px;font-size:12.5px;color:var(--accent2);font-weight:600}
+  ol.ops.after{padding-left:22px;border-left:2px solid #f0d9bd;margin-left:2px}
+  ol.ops.after li{color:var(--ink2)}
+
+  /* ---------- 单拍 ---------- */
+  .beat{display:grid;grid-template-columns:440px 1fr;gap:28px;padding:28px 0;border-bottom:1px solid var(--line)}
+  @media(max-width:900px){.beat{grid-template-columns:1fr}}
+  .shot{align-self:start;position:sticky;top:16px}
+  .shot a{display:block;border-radius:10px;overflow:hidden;border:1px solid var(--line);background:#fff;
+    box-shadow:0 1px 2px rgba(28,26,23,.05);transition:box-shadow .18s,border-color .18s}
+  .shot a:hover{border-color:var(--accent);box-shadow:0 6px 18px rgba(154,52,18,.13)}
+  .shot img{width:100%;display:block}
+  .tcbadge{position:absolute;left:10px;top:10px;background:rgba(28,26,23,.82);color:#fff;
+    font:600 12px/1 var(--mono);padding:5px 9px;border-radius:6px;letter-spacing:.04em}
+  .meta header{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .bid{font:700 12px/1 var(--mono);color:#fff;background:var(--accent);padding:4px 8px;border-radius:5px}
+  .meta h3{margin:0;font-size:19px;font-weight:650;letter-spacing:-.005em}
+  .ms{margin-left:auto;font:12px/1 var(--mono);color:var(--ink3)}
+  .say{margin:12px 0 0;font-size:16px;line-height:1.8;color:var(--ink)}
+  .say::before{content:'“';color:var(--accent);font-size:20px;margin-right:2px}
+  .say::after{content:'”';color:var(--accent);font-size:20px;margin-left:2px}
+  .err{margin:10px 0 0;padding:9px 12px;background:#fdeaea;border-radius:8px;color:var(--no);font-size:13.5px}
+
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:18px}
+  @media(max-width:1100px){.cols{grid-template-columns:1fr}}
+  .cols h4{margin:0 0 8px;font:600 11px/1 var(--mono);letter-spacing:.14em;color:var(--ink3);text-transform:uppercase}
+  ol.ops{margin:0;padding-left:18px;color:var(--ink2);font-size:13.5px}
+  ol.ops li{margin:5px 0}
+  ol.ops b{color:var(--accent)}
+  ul.checks{list-style:none;margin:0;padding:0}
+  ul.checks li{display:flex;gap:9px;padding:7px 0;border-top:1px dashed var(--line)}
+  ul.checks li:first-child{border-top:0}
+  ul.checks i{flex:none;font-style:normal;font-weight:700;color:var(--ok)}
+  ul.checks li.no i{color:var(--no)}
+  ul.checks b{display:block;font-weight:600;font-size:13.5px}
+  ul.checks span{display:block;color:var(--ink3);font:12px/1.6 var(--mono);word-break:break-word}
+  ul.checks code{font:12px/1 var(--mono);background:#f0ede6;padding:1px 5px;border-radius:4px}
+
+  .readout{margin:16px 0 0;padding-top:12px;border-top:1px dashed var(--line);
+    font:11.5px/1.7 var(--mono);color:var(--ink3)}
+
+  /* ---------- 附录 ---------- */
+  .appendix{margin-top:64px;padding-top:34px;border-top:2px solid var(--ink)}
+  .appendix h2{font-size:22px;font-weight:680;margin:0 0 6px}
+  .appendix .lead{color:var(--ink2);margin:0 0 22px;max-width:80ch}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+  @media(max-width:900px){.grid2{grid-template-columns:1fr}}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px}
+  .panel h3{margin:0 0 12px;font-size:15px;font-weight:650}
+  table{width:100%;border-collapse:collapse;font-size:13.5px}
+  th,td{text-align:left;padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font:600 11px/1 var(--mono);letter-spacing:.1em;color:var(--ink3);text-transform:uppercase}
+  td:first-child{white-space:nowrap;color:var(--ink2)}
+  td code{font:12px/1.5 var(--mono);background:#f0ede6;padding:1px 5px;border-radius:4px}
+  ul.plain{margin:0;padding-left:18px;color:var(--ink2);font-size:13.5px}
+  ul.plain li{margin:6px 0}
+  footer{margin-top:54px;padding-top:22px;border-top:1px solid var(--line);color:var(--ink3);font-size:12.5px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="cover">
+    <div class="kicker">Runbook · 医生场演示</div>
+    <h1>三系统解剖模型<br>五幕演示 · 运行手册</h1>
+    <p class="sub">左前臂与手：骨、肌、神经分层的 3D 模型。本手册是按下面这份时序<b>真跑过一遍</b>之后写的——
+      每一拍的截图、手部动作、机器核对到的数值都来自那次运行，可以直接照着排练。</p>
+    <div class="facts">
+      <div class="hi"><b>24/24</b><span>拍核对通过</span></div>
+      <div><b>5</b><span>幕</span></div>
+      <div><b>7:10</b><span>讲稿总时长</span></div>
+      <div><b>92.3s</b><span>机器全程（不含讲稿停顿）</span></div>
+      <div><b>94</b><span>骨 29 / 肌 35 / 神经 30</span></div>
+    </div>
+  </div>
+
+  <div class="prep">
+    <h2>开演前 3 分钟</h2>
+    <ol>
+      <li>起前端服务：<code>cd arm-atlas &amp;&amp; npm run dev</code>，浏览器开 <code>http://localhost:5173/</code>。</li>
+      <li>窗口给到 1600×1000 以上。窗口太窄时右侧控制栏会挤压画布，预设机位的取景比例会跟着变。</li>
+      <li>等模型载入完（骨 29 / 肌 35 / 神经 30 / 体表 1，配 32 种颜色）。实测首次载入约 <b>9 秒</b>，别在这个空窗里开口。</li>
+      <li>先点一次「复位」，再点「整体视图」，确认机位回到起点。</li>
+      <li>把鼠标停在画布上晃一圈，看名称浮标出得来——出不来说明 WebGL 上下文已经掉了，刷新一次。</li>
+    </ol>
+    <div class="warn"><b>演示时不要用触控板双指缩放。</b>缩放是对准指针位置的，触控板的惯性会让画面在讲完一句话之后还在动。
+      需要放大就用<b>双击结构聚焦</b>，需要机位就用右侧的视角按钮和情景预设——这两条路都是确定的、可以复现的。</div>
+  </div>
+
+  
+  <div class="vid">
+    <h2>整片录像 · 7:15</h2>
+    <p>这一版是按本手册同一份时序、同一套操作原语真跑出来的：GPU 渲染、底部字幕即讲稿、
+      光标跟着每一步操作走。没有剪辑——拍到什么就是什么，包括机器核对失败的话也会留在片子里。</p>
+    <video src="demo-full.mp4" controls preload="metadata" playsinline></video>
+    <div class="vfacts">
+      <span>拍核对 <b>24/24</b></span>
+      <span>抓帧 11296 张</span>
+      <span>成片 26 fps</span>
+      <span>最大时间轴漂移 0.3s</span>
+      <span>14.4 MB</span>
+    </div>
+  </div>
+
+  
+  <div class="prep">
+    <h2>这一版修了什么</h2>
+    <ol>
+      <li><b>「整体视图」装不下模型。</b>它的相机距离只有 3.26 场景单位，而装下整个模型需要约 10.9——
+        实测屏幕框 1607×1332 落在 1268×1000 的画布里，<b>出框 18%</b>，与讲稿里的「先看整体」不符。
+        改后出框率 <b>0%</b>。</li>
+      <li><b>每拍的「拍后动作」被漏掉。</b>驱动循环里拍后还有一步（例如 1.2 那句讲完，才把肌肉重新打开，
+        好接 1.3 的「不必去掉肌肉，压薄就行」）。漏掉它，画面状态会从那一拍起一路分叉，
+        后面每一句「压到几成」都会变成什么都没发生——<b>而录制过程本身不会报错</b>。</li>
+      <li><b>帧时长会被静置停顿压缩。</b>Chrome 的录屏会跳过与上一帧完全相同的帧，讲稿停顿期间一帧都不发。
+        若拿相邻帧的时间戳差当帧时长，38 秒的片段只会合成出 14.5 秒。改用「收到帧的时刻」计时后为 39.6 秒。</li>
+      <li><b>剥离之后，画布上的悬停与点击整体失效。</b>「剥离 → 复原」会把结构的 <code>raycast</code>
+        写成 <code>undefined</code>，此后每一次射线检测都抛异常、界面却毫无提示。第三幕剥离起受影响，
+        已修（<b>修复前 <code>object.raycast is not a function</code> ×20 个结构，修后 0</b>）。</li>
+    </ol>
+    <div class="warn">上面每一条都在改动之后<b>重跑了完整核对（24/24 通过）</b>，本页的截图与录像都出自修好的这一版。
+      注意第 4 条：当时的核对是「全过」的——坏掉的功能恰好不落在任何一拍的核对点上。
+      <b>核对只能证明它测到的那些东西是对的。</b></div>
+  </div>
+
+  <nav class="toc"><a href="#act1">第一幕 · 定位：这是什么、不是什么</a><a href="#act2">第二幕 · 腕管综合征：从病进入</a><a href="#act3">第三幕 · 逐层剥离：按手术入路的层次</a><a href="#act4">第四幕 · 改编码：神经支配着色</a><a href="#act5">第五幕 · 做不到的部分</a></nav>
+
+  
+  <section class="act" id="act1">
+    <div class="acthead">
+      <div class="actno">1</div>
+      <div>
+        <h2>定位：这是什么、不是什么</h2>
+        <p class="range">0:00 – 0:38　·　3 拍　·　核对 3/3 通过</p>
+        <p class="intent">先把「它是什么」定死，并且第一句就把「它不是诊断工具」说出去——后面第五幕要收回来，开头得先埋下。</p>
+      </div>
+    </div>
+    
+  <article class="beat ">
+    <div class="shot">
+      <a href="frames/1.1.png" target="_blank" title="点开看原始尺寸（1600×1000）">
+        <img src="frames/1.1.png" alt="1.1 开口定位，先给整体" loading="lazy">
+      </a>
+      <span class="tcbadge">0:00</span>
+    </div>
+    <div class="meta">
+      <header>
+        <span class="bid">1.1</span>
+        <h3>开口定位，先给整体</h3>
+        <span class="ms">6.8s</span>
+      </header>
+      <p class="say">这是左前臂与手。骨、肌、神经各自成层、可以单独开关。它不替代任何一项检查，用途是把「哪一层、什么位置、和谁挨着」讲到对方能看见。先看整体，掌侧。</p>
+      
+      <div class="cols">
+        <div>
+          <h4>手上做什么</h4>
+          <ol class="ops"><li>点右上角「复位」</li><li>停顿 1.6 秒（讲这句）</li><li>在「临床情景」里点「整体视图」</li><li>停顿 2.0 秒（讲这句）</li><li>视角切到「掌侧」</li><li>停顿 1.8 秒（讲这句）</li></ol>
+          
+        </div>
+        <div>
+          <h4>机器核对到什么</h4>
+          <ul class="checks"></ul>
+        </div>
+      </div>
+      <p class="readout">相机 [0,0.001,10.921] ｜ 视点距 10.919 ｜ 可见 骨 29 / 肌 35 / 神经 30 ｜ 选中 — ｜ 预设 overview</p>
+    </div>
+  </article>
+  <article class="beat ">
+    <div class="shot">
+      <a href="frames/1.2.png" target="_blank" title="点开看原始尺寸（1600×1000）">
+        <img src="frames/1.2.png" alt="1.2 关掉肌肉 —— 骨架加神经才是关键" loading="lazy">
+      </a>
+      <span class="tcbadge">0:20</span>
+    </div>
+    <div class="meta">
+      <header>
+        <span class="bid">1.2</span>
+        <h3>关掉肌肉 —— 骨架加神经才是关键</h3>
+        <span class="ms">2.1s</span>
+      </header>
+      <p class="say">把肌肉关掉。骨架加神经走行，是这个东西真正的价值所在：骨性标志和神经的相对位置，可以直接照着讲。</p>
+      
+      <div class="cols">
+        <div>
+          <h4>手上做什么</h4>
+          <ol class="ops"><li>关闭图层「肌肉」</li><li>停顿 0.9 秒（讲这句）</li></ol>
+          <p class="afterhint">这句讲完之后、进入下一拍之前，再做一步：</p>
+                 <ol class="ops after"><li>打开图层「肌肉」</li><li>停顿 0.7 秒（讲这句）</li></ol>
+        </div>
+        <div>
+          <h4>机器核对到什么</h4>
+          <ul class="checks">
+        <li class="ok">
+          <i>✓</i>
+          <div><b>肌肉图层已关闭</b></div>
+        </li>
+        <li class="ok">
+          <i>✓</i>
+          <div><b>画面里肌肉块数归零</b><span>35 → 0</span></div>
+        </li>
+        <li class="ok">
+          <i>✓</i>
+          <div><b>骨、神经与体表未被连带关掉</b><span>骨 29 / 神经 30 / 体表 1</span></div>
+        </li>
+        <li class="ok">
+          <i>✓</i>
+          <div><b>没有查不到图层归属的可见网格（新加的结构必须登记图层）</b><span>全部可归属（另有 1 个已标记的辅助几何，不计入）</span></div>
+        </li></ul>
+        </div>
+      </div>
+      <p class="readout">相机 [0,0.001,10.921] ｜ 视点距 10.919 ｜ 可见 骨 29 / 肌 0 / 神经 30 ｜ 选中 — ｜ 预设 overview</p>
+    </div>
+  </article>
+  <article class="beat ">
+    <div class="shot">
+      <a href="frames/1.3.png" target="_blank" title="点开看原始尺寸（1600×1000）">
+        <img src="frames/1.3.png" alt="1.3 不必去掉肌肉，压薄就行" loading="lazy">
+      </a>
+      <span class="tcbadge">0:38</span>
+    </div>
+    <div class="meta">
+      <header>
+        <span class="bid">1.3</span>
+        <h3>不必去掉肌肉，压薄就行</h3>
+        <span class="ms">2.2s</span>
+      </header>
+      <p class="say">肌肉可以调透明度。要看深层结构时不必真的删掉它——压到三成，深层还都在原位。</p>
+      
+      <div class="cols">
+        <div>
+          <h4>手上做什么</h4>
+          <ol class="ops"><li>把「肌肉」的不透明度拖到 <b>35%</b></li><li>停顿 0.9 秒（讲这句）</li></ol>
+          
+        </div>
+        <div>
+          <h4>机器核对到什么</h4>
+          <ul class="checks">
+        <li class="ok">
+          <i>✓</i>
+          <div><b>肌肉材质透明度真的降了（读材质，不读 store）</b><span>最不透明的肌肉 0.85 → 0.35</span></div>
+        </li>
+        <li class="ok">
+          <i>✓</i>
+          <div><b>图层状态同步为 35%</b></div>
+        </li></ul>
+        </div>
+      </div>
+      <p class="readout">相机 [0,0.001,10.921] ｜ 视点距 10.919 ｜ 可见 骨 29 / 肌 35 / 神经 30 ｜ 选中 — ｜ 预设 overview</p>
+    </div>
+  </article>
+  </section>
+  <section class="act" id="act2">
+    <div class="acthead">
+      <div class="actno">2</div>
+      <div>
+        <h2>腕管综合征：从病进入</h2>
+        <p class="range">0:50 – 2:25　·　5 拍　·　核对 5/5 通过</p>
+        <p class="intent">选最常见的腕管综合征，证明「点一个病名 → 相机自己到位 → 神经直接可讲」。这一幕是给医生看的第一记实证。</p>
+      </div>
+    </div>
+    
+  <article class="beat ">
+    <div class="shot">
+      <a href="frames/2.1.png" target="_blank" title="点开看原始尺寸（1600×1000）">
+        <img src="frames/2.1.png" alt="2.1 点一个病名，相机自己定位" loading="lazy">
+      </a>
+      <span class="tcbadge">0:50</span>
+    </div>
+    <div class="meta">
+      <header>
+        <span class="bid">2.1</span>
+        <h3>点一个病名，相机自己定位</h3>
+        <span class="ms">5.0s</span>
+      </header>
+      <p class="say">我拿最常见的来试。腕管综合征——正中神经在腕管里受压。点这个按钮，相机自己定位到腕部，不用我在观众面前找角度。</p>
+      
+      <div class="cols">
+        <div>
+          <h4>手上做什么</h4>
+          <ol class="ops"><li>在「临床情景」里点「腕管综合征」</li><li>停顿 2.8 秒（讲这句）</li></ol>
+          
+        </div>
+        <div>
+          <h4>机器核对到什么</h4>
+          <ul class="checks">
+        <li class="ok">
+          <i>✓</i>
+          <div><b>预设已生效</b><span>carpal-tunnel</span></div>
+        </li>
+        <li class="ok">
+          <i>✓</i>
+          <div><b>相机真的飞过去了（视点位移）</b><span>[0,0.001,0.002] → [0.207,-1.982,0.137]　位移 1.998</span></div>
+        </li>
+        <li class="ok">
+          <i>✓</i>
+          <div><b>机位拉近</b><span>距离 10.919 → 1.355</span></div>
+        </li>
+        <li class="ok">
+          <i>✓</i>
+          <div><b>正中神经已选中</b><span>median</span></div>
+        </li></ul>
+        </div>
+      </div>
+      <p class="readout">相机 [0.057,-1.632,1.437] ｜ 视点距 1.355 ｜ 可见 骨 29 / 肌 35 / 神经 30 ｜ 选中 median ｜ 预设 carpal-tunnel</p>
+    </div>
+  </article>
+  <article class="beat ">
+    <div class="shot">
+      <a href="frames/2.2.png" target="_blank" title="点开看原始尺寸（1600×1000）">
+        <img src="frames/2.2.png" alt="2.2 再压薄一档：肌肉只剩轮廓" loading="lazy">
+      </a>
+      <span class="tcbadge">1:20</span>
+    </div>
+    <div class="meta">
+      <header>
+        <span class="bid">2.2</span>
+        <h3>再压薄一档：肌肉只剩轮廓</h3>
+        <span class="ms">3.1s</span>
+      </header>
+      <p class="say">点这个病名的时候，肌肉已经自动压到两成，神经露出来了。如果还嫌它挡视线，可以再往下压——压到一成，肌肉只剩一层轮廓，正中神经和它两侧的骨头完全没有遮挡。</p>
+      
+      <div class="cols">
+        <div>
+          <h4>手上做什么</h4>
+          <ol class="ops"><li>把「肌肉」的不透明度拖到 <b>10%</b></li><li>停顿 1.1 秒（讲这句）</li></ol>
+          
+        </div>
+        <div>
+          <h4>机器核对到什么</h4>
+          <ul class="checks">
+        <li class="ok">
+          <i>✓</i>
+          <div><b>肌肉更透了</b><span>0.22 → 0.1</span></div>
+        </li>
+        <li class="ok">
+          <i>✓</i>
+          <div><b>神经没被一起压掉</b><span>神经 30 段可见</span></div>
+        </li></ul>
+        </div>
+      </div>
+      <p class="readout">相机 [0.057,-1.632,1.437] ｜ 视点距 1.355 ｜ 可见 骨 29 / 肌 35 / 神经 30 ｜ 选中 median ｜ 预设 carpal-tunnel</p>
+    </div>
+  </article>
+  <article class="beat ">
+    <div class="shot">
+      <a href="frames/2.3.png" target="_blank" title="点开看原始尺寸（1600×1000）">
+        <img src="frames/2.3.png" alt="2.3 指着说：悬停出名称" loading="lazy">
+      </a>
+      <span class="tcbadge">1:40</span>
+    </div>
+    <div class="meta">
+      <header>
+        <span class="bid">2.3</span>
+        <h3>指着说：悬停出名称</h3>
+        <span class="ms">12.2s</span>
+      </header>
+      <p class="say">鼠标停上去，名称直接出来，中英对照。演示时不用背术语。</p>
+      
+      <div class="cols">
+        <div>
+          <h4>手上做什么</h4>
+          <ol class="ops"><li>把指针移到 <b>median</b> 上（等名称浮标出来）</li><li>停顿 0.4 秒（讲这句）</li></ol>
+          
+        </div>
+        <div>
+          <h4>机器核对到什么</h4>
+          <ul class="checks">
+        <li class="ok">
+          <i>✓</i>
+          <div><b>光标确实命中了正中神经</b><span>hovered = median</span></div>
+        </li>
+        <li class="ok">
+          <i>✓</i>
+          <div><b>名称浮标已渲染到画布上</b><span>.hlabel</span></div>
+        </li></ul>
+        </div>
+      </div>
+      <p class="readout">相机 [0.057,-1.632,1.437] ｜ 视点距 1.355 ｜ 可见 骨 29 / 肌 35 / 神经 30 ｜ 选中 median ｜ 预设 carpal-tunnel ｜ 悬停 median</p>
+    </div>
+  </article>
+  <article class="beat ">
+    <div class="shot">
+      <a href="frames/2.4.png" target="_blank" title="点开看原始尺寸（1600×1000）">
+        <img src="frames/2.4.png" alt="2.4 双击聚焦：之后所有旋转都绕这一点" loading="lazy">
+      </a>
+      <span class="tcbadge">2:00</span>
+    </div>
+    <div class="meta">
+      <header>
+        <span class="bid">2.4</span>
+        <h3>双击聚焦：之后所有旋转都绕这一点</h3>
+        <span class="ms">4.2s</span>
+      </header>
+      <p class="say">双击就把视点收进腕管。放大之后旋转、缩放不会再「一拖就飞」，因为它们绕的就是这里。</p>
+      
+      <div class="cols">
+        <div>
+          <h4>手上做什么</h4>
+          <ol class="ops"><li>在同一个点上<b>双击</b></li><li>停顿 1.8 秒（讲这句）</li></ol>
+          
+        </div>
+        <div>
+          <h4>机器核对到什么</h4>
+          <ul class="checks">
+        <li class="ok">
+          <i>✓</i>
+          <div><b>视点搬到命中处</b><span>[0.207,-1.982,0.137] → [0.147,-1.717,0.079]</span></div>
+        </li>
+        <li class="ok">
+          <i>✓</i>
+          <div><b>距离进一步收近</b><span>1.355 → 0.975</span></div>
+        </li>
+        <li class="ok">
+          <i>✓</i>
+          <div><b>选中态保持（没闪成取消）</b><span>median</span></div>
+        </li></ul>
+        </div>
+      </div>
+      <p class="readout">相机 [0.039,-1.465,1.015] ｜ 视点距 0.975 ｜ 可见 骨 29 / 肌 35 / 神经 30 ｜ 选中 median ｜ 悬停 median</p>
+    </div>
+  </article>
+  <article class="beat ">
+    <div class="shot">
+      <a href="frames/2.5.png" target="_blank" title="点开看原始尺寸（1600×1000）">
+        <img src="frames/2.5.png" alt="2.5 孤立模式：给患者看最有效的一步" loading="lazy">
+      </a>
+      <span class="tcbadge">2:25</span>
+    </div>
+    <div class="meta">
+      <header>
+        <span class="bid">2.5</span>
+        <h3>孤立模式：给患者看最有效的一步</h3>
+        <span class="ms">3.3s</span>
+      </header>
+      <p class="say">孤立模式——点中的留下，其余全部淡出。只留正中神经和它旁边那几块骨头。跟患者解释「压的是这根」的时候，这一步最省话。</p>
+      
+      <div class="cols">
+        <div>
+          <h4>手上做什么</h4>
+          <ol class="ops"><li>打开「孤立模式」</li><li>停顿 1.1 秒（讲这句）</li></ol>
+          
+        </div>
+        <div>
+          <h4>机器核对到什么</h4>
+          <ul class="checks">
+        <li class="ok">
+          <i>✓</i>
+          <div><b>孤立模式已开</b></div>
+        </li>
+        <li class="ok">
+          <i>✓</i>
+          <div><b>其余结构确实淡出了</b><span>最淡的肌肉 0.015（目标结构仍为 0.015）</span></div>
+        </li>
+        <li class="ok">
+          <i>✓</i>
+          <div><b>画面上实心的结构变少</b><span>实心结构 61 → 3</span></div>
+        </li></ul>
+        </div>
+      </div>
+      <p class="readout">相机 [0.039,-1.465,1.015] ｜ 视点距 0.975 ｜ 可见 骨 29 / 肌 35 / 神经 30 ｜ 选中 median ｜ 悬停 median</p>
+    </div>
+  </article>
+  </section>
+  <section class="act" id="act3">
+    <div class="acthead">
+      <div class="actno">3</div>
+      <div>
+        <h2>逐层剥离：按手术入路的层次</h2>
+        <p class="range">2:50 – 4:39　·　8 拍　·　核对 8/8 通过</p>
+        <p class="intent">最像解剖学的一段。剥离顺序本身就是内容：体表 → 浅层肌 → 神经血管层 → 深层肌 → 骨，对应手术由浅入深遇到的那几层。注意体表是第 1 步（它是算出来的壳，剥掉才看得到肌肉），所以讲稿里的「第几层」与面板上的步号一致、与 `peel N` 的 N 也一致。</p>
+      </div>
+    </div>
+    
+  <article class="beat ">
+    <div class="shot">
+      <a href="frames/3.1.png" target="_blank" title="点开看原始尺寸（1600×1000）">
+        <img src="frames/3.1.png" alt="3.1 回到整体，进入逐层剥离" loading="lazy">
+      </a>
+      <span class="tcbadge">2:50</span>
+    </div>
+    <div class="meta">
+      <header>
+        <span class="bid">3.1</span>
+        <h3>回到整体，进入逐层剥离</h3>
+        <span class="ms">6.0s</span>
+      </header>
+      <p class="say">回到整体。接下来是它最像「解剖」的一段：逐层剥离。顺序不是随便排的，它对应你在手术里由浅入深遇到的那几层。</p>
+      
+      <div class="cols">
+        <div>
+          <h4>手上做什么</h4>
+          <ol class="ops"><li>关闭「孤立模式」</li><li>停顿 0.5 秒（讲这句）</li><li>把「肌肉」的不透明度拖到 <b>85%</b></li><li>停顿 0.4 秒（讲这句）</li><li>点右上角「复位」</li><li>停顿 2.2 秒（讲这句）</li><li>视角切到「掌侧」</li><li>停顿 1.6 秒（讲这句）</li></ol>
+          
+        </div>
+        <div>
+          <h4>机器核对到什么</h4>
+          <ul class="checks">
+        <li class="ok">
+          <i>✓</i>
+          <div><b>孤立模式已关</b></div>
+        </li>
+        <li class="ok">
+          <i>✓</i>
+          <div><b>剥离进度为 0</b></div>
+        </li>
+        <li class="ok">
+          <i>✓</i>
+          <div><b>机构回到中心</b><span>[0,0,0]</span></div>
+        </li></ul>
+        </div>
+      </div>
+      <p class="readout">相机 [0,0,9.765] ｜ 视点距 9.765 ｜ 可见 骨 29 / 肌 35 / 神经 30 ｜ 选中 median ｜ 悬停 median</p>
+    </div>
+  </article>
+  <article class="beat ">
+    <div class="shot">
+      <a href="frames/3.2.png" target="_blank" title="点开看原始尺寸（1600×1000）">
+        <img src="frames/3.2.png" alt="3.2 第一层：体表壳" loading="lazy">
+      </a>
+      <span class="tcbadge">3:05</span>
+    </div>
+    <div class="meta">
+      <header>
+        <span class="bid">3.2</span>
+        <h3>第一层：体表壳</h3>
+        <span class="ms">2.4s</span>
+      </header>
+      <p class="say">第一层是最外面的体表。要说清楚：这一层壳不是扫描来的，全库没有皮肤几何——它是由骨和肌的轮廓向外等距外扩三毫米半算出来的，只用来表达肢体的范围，不能拿来量围度。剥掉它，才看得到肌肉。</p>
+      
+      <div class="cols">
+        <div>
+          <h4>手上做什么</h4>
+          <ol class="ops"><li>「逐层剥离」剥到第 <b>1</b> 层</li><li>停顿 1.4 秒（讲这句）</li></ol>
+          
+        </div>
+        <div>
+          <h4>机器核对到什么</h4>
+          <ul class="checks">
+        <li class="ok">
+          <i>✓</i>
+          <div><b>进度 = 1</b></div>
+        </li>
+        <li class="ok">
+          <i>✓</i>
+          <div><b>体表壳被剥掉</b><span>可见体表 1 → 0</span></div>
+        </li>
+        <li class="ok">
+          <i>✓</i>
+          <div><b>第 1 步已剥净、第 2 步（浅层肌群）完整</b><span>仍有第 1 步结构 0 个 / 第 2 步 24 个</span></div>
+        </li>
+        <li class="ok">
+          <i>✓</i>
+          <div><b>肌肉一块没少（剥的只是外壳）</b><span>肌肉 35 → 35</span></div>
+        </li></ul>
+        </div>
+      </div>
+      <p class="readout">相机 [0,0,9.765] ｜ 视点距 9.765 ｜ 可见 骨 29 / 肌 35 / 神经 30 ｜ 选中 median ｜ 剥离深度 1 ｜ 悬停 median</p>
+    </div>
+  </article>
+  <article class="beat ">
+    <div class="shot">
+      <a href="frames/3.3.png" target="_blank" title="点开看原始尺寸（1600×1000）">
+        <img src="frames/3.3.png" alt="3.3 第二层：浅层肌群" loading="lazy">
+      </a>
+      <span class="tcbadge">3:24</span>
+    </div>
+    <div class="meta">
+      <header>
+        <span class="bid">3.3</span>
+        <h3>第二层：浅层肌群</h3>
+        <span class="ms">2.3s</span>
+      </header>
+      <p class="say">第二层，浅层肌群——屈肌浅层、伸肌浅层、鱼际、小鱼际。这就是手术里切开体表之后最先遇到的那一层。</p>
+      
+      <div class="cols">
+        <div>
+          <h4>手上做什么</h4>
+          <ol class="ops"><li>「逐层剥离」剥到第 <b>2</b> 层</li><li>停顿 1.4 秒（讲这句）</li></ol>
+          
+        </div>
+        <div>
+          <h4>机器核对到什么</h4>
+          <ul class="checks">
+        <li class="ok">
+          <i>✓</i>
+          <div><b>进度 = 2</b></div>
+        </li>
+        <li class="ok">
+          <i>✓</i>
+          <div><b>可见结构数下降（剥离真的发生了）</b><span>可见肌肉 35 → 11 块</span></div>
+        </li>
+        <li class="ok">
+          <i>✓</i>
+          <div><b>骨骼不受影响（不参与剥离）</b><span>骨 29 → 29</span></div>
+        </li>
+        <li class="ok">
+          <i>✓</i>
+          <div><b>第 3 步（神经血管层）还完整盖着</b><span>第 3 步仍有 26 个可见</span></div>
+        </li></ul>
+        </div>
+      </div>
+      <p class="readout">相机 [0,0,9.765] ｜ 视点距 9.765 ｜ 可见 骨 29 / 肌 11 / 神经 30 ｜ 选中 median ｜ 剥离深度 2 ｜ 悬停 median</p>
+    </div>
+  </article>
+  <article class="beat ">
+    <div class="shot">
+      <a href="frames/3.4.png" target="_blank" title="点开看原始尺寸（1600×1000）">
+        <img src="frames/3.4.png" alt="3.4 第三层是神经，不是深层肌" loading="lazy">
+      </a>
+      <span class="tcbadge">3:44</span>
+    </div>
+    <div class="meta">
+      <header>
+        <span class="bid">3.4</span>
+        <h3>第三层是神经，不是深层肌</h3>
+        <span class="ms">2.1s</span>
+      </header>
+      <p class="say">第三层不是深层肌，是神经。前臂中段正中神经走在指浅屈肌深面、指深屈肌浅面——所以剥掉浅层肌，第一眼看到的是它。这个顺序本身就是一条解剖信息。</p>
+      
+      <div class="cols">
+        <div>
+          <h4>手上做什么</h4>
+          <ol class="ops"><li>「逐层剥离」剥到第 <b>3</b> 层</li><li>停顿 1.4 秒（讲这句）</li></ol>
+          
+        </div>
+        <div>
+          <h4>机器核对到什么</h4>
+          <ul class="checks">
+        <li class="ok">
+          <i>✓</i>
+          <div><b>进度 = 3</b></div>
+        </li>
+        <li class="ok">
+          <i>✓</i>
+          <div><b>神经被剥掉</b><span>神经 30 → 4</span></div>
+        </li>
+        <li class="ok">
+          <i>✓</i>
+          <div><b>深层肌还在（说明神经夹在浅深肌之间）</b><span>第 4 步（深层肌群）仍有 15 个可见</span></div>
+        </li></ul>
+        </div>
+      </div>
+      <p class="readout">相机 [0,0,9.765] ｜ 视点距 9.765 ｜ 可见 骨 29 / 肌 11 / 神经 4 ｜ 选中 — ｜ 剥离深度 3 ｜ 悬停 median</p>
+    </div>
+  </article>
+  <article class="beat ">
+    <div class="shot">
+      <a href="frames/3.5.png" target="_blank" title="点开看原始尺寸（1600×1000）">
+        <img src="frames/3.5.png" alt="3.5 展开浅层，只剥背侧" loading="lazy">
+      </a>
+      <span class="tcbadge">4:08</span>
+    </div>
+    <div class="meta">
+      <header>
+        <span class="bid">3.5</span>
+        <h3>展开浅层，只剥背侧</h3>
+        <span class="ms">4.8s</span>
+      </header>
+      <p class="say">展开可以把一层拆开。只剥背侧的伸肌浅层、掌侧还留着——做背侧入路和掌侧入路，术中看到的就是两幅不同的画面。</p>
+      
+      <div class="cols">
+        <div>
+          <h4>手上做什么</h4>
+          <ol class="ops"><li>点剥离区的「复原」</li><li>停顿 1.5 秒（讲这句）</li><li>记一次基线快照（base）</li><li>把「浅层肌群」<b>展开</b>成子层</li><li>停顿 0.8 秒（讲这句）</li><li>剥子层「<b>伸肌 · 浅层</b>」</li><li>停顿 1.5 秒（讲这句）</li></ol>
+          
+        </div>
+        <div>
+          <h4>机器核对到什么</h4>
+          <ul class="checks">
+        <li class="ok">
+          <i>✓</i>
+          <div><b>浅层已展开为子层</b><span>["shallow"]</span></div>
+        </li>
+        <li class="ok">
+          <i>✓</i>
+          <div><b>背侧那一步已剥净，掌侧那一步原封不动</b><span>第 2 步（伸肌·浅层）剩 0 个 / 第 3 步（屈肌·浅层）剩 8 个</span></div>
+        </li>
+        <li class="ok">
+          <i>✓</i>
+          <div><b>只剥了一部分（不是整层）</b><span>整层完整时可见肌肉 35 块 → 只剥背侧伸肌浅层后 27 块（掌侧仍留着）</span></div>
+        </li>
+        <li class="ok">
+          <i>✓</i>
+          <div><b>体表也已剥掉（不是从体表开始重来）</b></div>
+        </li></ul>
+        </div>
+      </div>
+      <p class="readout">相机 [0,0,9.765] ｜ 视点距 9.765 ｜ 可见 骨 29 / 肌 27 / 神经 30 ｜ 选中 — ｜ 剥离深度 2 ｜ 悬停 median</p>
+    </div>
+  </article>
+  <article class="beat ">
+    <div class="shot">
+      <a href="frames/3.6.png" target="_blank" title="点开看原始尺寸（1600×1000）">
+        <img src="frames/3.6.png" alt="3.6 收起：进度保持，画面不跳" loading="lazy">
+      </a>
+      <span class="tcbadge">4:23</span>
+    </div>
+    <div class="meta">
+      <header>
+        <span class="bid">3.6</span>
+        <h3>收起：进度保持，画面不跳</h3>
+        <span class="ms">2.1s</span>
+      </header>
+      <p class="say">收起来。已经剥掉的层保持不变，画面不会跳回另一种状态。</p>
+      
+      <div class="cols">
+        <div>
+          <h4>手上做什么</h4>
+          <ol class="ops"><li>把「浅层肌群」<b>收起</b></li><li>停顿 1.2 秒（讲这句）</li></ol>
+          
+        </div>
+        <div>
+          <h4>机器核对到什么</h4>
+          <ul class="checks">
+        <li class="ok">
+          <i>✓</i>
+          <div><b>已折叠</b></div>
+        </li>
+        <li class="ok">
+          <i>✓</i>
+          <div><b>进度没有归零（重映射生效）</b><span>depth = 2</span></div>
+        </li>
+        <li class="ok">
+          <i>✓</i>
+          <div><b>折叠后仍是「体表 + 浅层肌群已剥、神经未剥」</b><span>体表 0 / 神经 30 → 30</span></div>
+        </li></ul>
+        </div>
+      </div>
+      <p class="readout">相机 [0,0,9.765] ｜ 视点距 9.765 ｜ 可见 骨 29 / 肌 11 / 神经 30 ｜ 选中 — ｜ 剥离深度 2 ｜ 悬停 median</p>
+    </div>
+  </article>
+  <article class="beat ">
+    <div class="shot">
+      <a href="frames/3.7.png" target="_blank" title="点开看原始尺寸（1600×1000）">
+        <img src="frames/3.7.png" alt="3.7 一路剥到骨" loading="lazy">
+      </a>
+      <span class="tcbadge">4:31</span>
+    </div>
+    <div class="meta">
+      <header>
+        <span class="bid">3.7</span>
+        <h3>一路剥到骨</h3>
+        <span class="ms">2.8s</span>
+      </header>
+      <p class="say">一路剥到底。只剩骨骼。</p>
+      
+      <div class="cols">
+        <div>
+          <h4>手上做什么</h4>
+          <ol class="ops"><li>点剥离区的「剥到骨」</li><li>停顿 2.4 秒（讲这句）</li></ol>
+          
+        </div>
+        <div>
+          <h4>机器核对到什么</h4>
+          <ul class="checks">
+        <li class="ok">
+          <i>✓</i>
+          <div><b>体表、肌肉与神经全部剥净，只剩骨</b><span>骨 29 / 肌 0 / 神经 0 / 体表 0</span></div>
+        </li>
+        <li class="ok">
+          <i>✓</i>
+          <div><b>骨骼数量与剥离前一致</b><span>骨 29 → 29</span></div>
+        </li></ul>
+        </div>
+      </div>
+      <p class="readout">相机 [0,0,9.765] ｜ 视点距 9.765 ｜ 可见 骨 29 / 肌 0 / 神经 0 ｜ 选中 — ｜ 剥离深度 4 ｜ 悬停 median</p>
+    </div>
+  </article>
+  <article class="beat ">
+    <div class="shot">
+      <a href="frames/3.8.png" target="_blank" title="点开看原始尺寸（1600×1000）">
+        <img src="frames/3.8.png" alt="3.8 复原" loading="lazy">
+      </a>
+      <span class="tcbadge">4:39</span>
+    </div>
+    <div class="meta">
+      <header>
+        <span class="bid">3.8</span>
+        <h3>复原</h3>
+        <span class="ms">3.8s</span>
+      </header>
+      <p class="say">复原。</p>
+      
+      <div class="cols">
+        <div>
+          <h4>手上做什么</h4>
+          <ol class="ops"><li>点剥离区的「复原」</li><li>停顿 2.4 秒（讲这句）</li></ol>
+          
+        </div>
+        <div>
+          <h4>机器核对到什么</h4>
+          <ul class="checks">
+        <li class="ok">
+          <i>✓</i>
+          <div><b>进度归零</b></div>
+        </li>
+        <li class="ok">
+          <i>✓</i>
+          <div><b>三层结构都回到画面</b><span>肌 35 / 神经 30 / 体表 1</span></div>
+        </li>
+        <li class="ok">
+          <i>✓</i>
+          <div><b>骨骼仍完好</b><span>骨 29</span></div>
+        </li></ul>
+        </div>
+      </div>
+      <p class="readout">相机 [0,0,9.765] ｜ 视点距 9.765 ｜ 可见 骨 29 / 肌 35 / 神经 30 ｜ 选中 — ｜ 悬停 median</p>
+    </div>
+  </article>
+  </section>
+  <section class="act" id="act4">
+    <div class="acthead">
+      <div class="actno">4</div>
+      <div>
+        <h2>改编码：神经支配着色</h2>
+        <p class="range">4:45 – 5:55　·　4 拍　·　核对 4/4 通过</p>
+        <p class="intent">同一套模型换一种编码方式。从「这块肌肉是干什么的」切到「这块肌肉归谁管」。</p>
+      </div>
+    </div>
+    
+  <article class="beat ">
+    <div class="shot">
+      <a href="frames/4.1.png" target="_blank" title="点开看原始尺寸（1600×1000）">
+        <img src="frames/4.1.png" alt="4.1 换个编码方式：神经支配" loading="lazy">
+      </a>
+      <span class="tcbadge">4:45</span>
+    </div>
+    <div class="meta">
+      <header>
+        <span class="bid">4.1</span>
+        <h3>换个编码方式：神经支配</h3>
+        <span class="ms">2.7s</span>
+      </header>
+      <p class="say">换个编码方式。现在颜色代表的不是肌肉功能群，而是神经支配。暖色是正中神经，紫是尺神经，蓝是桡神经。</p>
+      
+      <div class="cols">
+        <div>
+          <h4>手上做什么</h4>
+          <ol class="ops"><li>「肌肉着色」切到「神经支配」</li><li>停顿 1.3 秒（讲这句）</li></ol>
+          
+        </div>
+        <div>
+          <h4>机器核对到什么</h4>
+          <ul class="checks">
+        <li class="ok">
+          <i>✓</i>
+          <div><b>已切到神经支配模式</b></div>
+        </li>
+        <li class="ok">
+          <i>✓</i>
+          <div><b>画面配色直方图整体换掉（说明真的重绘了）</b><span>33 种颜色 → 22 种</span></div>
+        </li></ul>
+        </div>
+      </div>
+      <p class="readout">相机 [0,0,9.765] ｜ 视点距 9.765 ｜ 可见 骨 29 / 肌 35 / 神经 30 ｜ 选中 — ｜ 悬停 median</p>
+    </div>
+  </article>
+  <article class="beat ">
+    <div class="shot">
+      <a href="frames/4.2.png" target="_blank" title="点开看原始尺寸（1600×1000）">
+        <img src="frames/4.2.png" alt="4.2 点图例：尺神经支配区整片亮起" loading="lazy">
+      </a>
+      <span class="tcbadge">5:10</span>
+    </div>
+    <div class="meta">
+      <header>
+        <span class="bid">4.2</span>
+        <h3>点图例：尺神经支配区整片亮起</h3>
+        <span class="ms">2.5s</span>
+      </header>
+      <p class="say">点一下尺神经，它支配的肌肉整片亮起来。这块区域受损，功能缺损的范围就是这一片——比说一句「尺神经支配手内在肌」直观得多。</p>
+      
+      <div class="cols">
+        <div>
+          <h4>手上做什么</h4>
+          <ol class="ops"><li>点图例「尺神经」</li><li>停顿 1.2 秒（讲这句）</li></ol>
+          
+        </div>
+        <div>
+          <h4>机器核对到什么</h4>
+          <ul class="checks">
+        <li class="ok">
+          <i>✓</i>
+          <div><b>高亮群已激活</b><span>highlightGroup = ulnar</span></div>
+        </li>
+        <li class="ok">
+          <i>✓</i>
+          <div><b>非目标群被压暗</b><span>最淡的肌肉 0.12</span></div>
+        </li>
+        <li class="ok">
+          <i>✓</i>
+          <div><b>目标群仍保持实心</b><span>实心结构 97 → 42（尺神经区留下）</span></div>
+        </li></ul>
+        </div>
+      </div>
+      <p class="readout">相机 [0,0,9.765] ｜ 视点距 9.765 ｜ 可见 骨 29 / 肌 35 / 神经 30 ｜ 选中 — ｜ 悬停 median</p>
+    </div>
+  </article>
+  <article class="beat ">
+    <div class="shot">
+      <a href="frames/4.3.png" target="_blank" title="点开看原始尺寸（1600×1000）">
+        <img src="frames/4.3.png" alt="4.3 切回功能群：两套配色是对齐的" loading="lazy">
+      </a>
+      <span class="tcbadge">5:35</span>
+    </div>
+    <div class="meta">
+      <header>
+        <span class="bid">4.3</span>
+        <h3>切回功能群：两套配色是对齐的</h3>
+        <span class="ms">2.9s</span>
+      </header>
+      <p class="say">切回功能群。两套配色是刻意对齐的——正中对应屈肌、桡神经对应伸肌，切换的时候不用重新建立色觉映射，看着就顺。</p>
+      
+      <div class="cols">
+        <div>
+          <h4>手上做什么</h4>
+          <ol class="ops"><li>点图例「尺神经」</li><li>停顿 0.5 秒（讲这句）</li><li>「肌肉着色」切到「功能群」</li><li>停顿 1.1 秒（讲这句）</li></ol>
+          
+        </div>
+        <div>
+          <h4>机器核对到什么</h4>
+          <ul class="checks">
+        <li class="ok">
+          <i>✓</i>
+          <div><b>高亮已取消</b></div>
+        </li>
+        <li class="ok">
+          <i>✓</i>
+          <div><b>回到功能群模式</b></div>
+        </li>
+        <li class="ok">
+          <i>✓</i>
+          <div><b>实心结构恢复</b><span>42 → 96</span></div>
+        </li></ul>
+        </div>
+      </div>
+      <p class="readout">相机 [0,0,9.765] ｜ 视点距 9.765 ｜ 可见 骨 29 / 肌 35 / 神经 30 ｜ 选中 — ｜ 悬停 median</p>
+    </div>
+  </article>
+  <article class="beat ">
+    <div class="shot">
+      <a href="frames/4.4.png" target="_blank" title="点开看原始尺寸（1600×1000）">
+        <img src="frames/4.4.png" alt="4.4 点一块结构：卡片里直接给出分组与神经" loading="lazy">
+      </a>
+      <span class="tcbadge">5:55</span>
+    </div>
+    <div class="meta">
+      <header>
+        <span class="bid">4.4</span>
+        <h3>点一块结构：卡片里直接给出分组与神经</h3>
+        <span class="ms">3.1s</span>
+      </header>
+      <p class="say">任意点一块结构，卡片给出中文名、英文名、拉丁名，还有它属于哪个功能群、归哪根神经支配。门诊或者查房当场说，不用回头翻书。</p>
+      
+      <div class="cols">
+        <div>
+          <h4>手上做什么</h4>
+          <ol class="ops"><li>选中结构「left pronator quadratus」</li><li>停顿 1.3 秒（讲这句）</li></ol>
+          
+        </div>
+        <div>
+          <h4>机器核对到什么</h4>
+          <ul class="checks">
+        <li class="ok">
+          <i>✓</i>
+          <div><b>结构已选中</b></div>
+        </li>
+        <li class="ok">
+          <i>✓</i>
+          <div><b>选中结构被亮青描边（像素级换了色）</b><span>选中用独立色 #22D3EE，与所有群色都不撞</span></div>
+        </li>
+        <li class="ok">
+          <i>✓</i>
+          <div><b>信息卡已渲染</b><span>.card</span></div>
+        </li></ul>
+        </div>
+      </div>
+      <p class="readout">相机 [0,0,9.765] ｜ 视点距 9.765 ｜ 可见 骨 29 / 肌 35 / 神经 30 ｜ 选中 left pronator quadratus ｜ 悬停 median</p>
+    </div>
+  </article>
+  </section>
+  <section class="act" id="act5">
+    <div class="acthead">
+      <div class="actno">5</div>
+      <div>
+        <h2>做不到的部分</h2>
+        <p class="range">6:05 – 7:05　·　4 拍　·　核对 4/4 通过</p>
+        <p class="intent">主动交代边界。剖切面是最后一个能做的动作；讲完当场把缺什么、不体现什么说清楚，把使用位置钉死在「沟通工具」。</p>
+      </div>
+    </div>
+    
+  <article class="beat ">
+    <div class="shot">
+      <a href="frames/5.1.png" target="_blank" title="点开看原始尺寸（1600×1000）">
+        <img src="frames/5.1.png" alt="5.1 剖切面：横断面看层次关系" loading="lazy">
+      </a>
+      <span class="tcbadge">6:05</span>
+    </div>
+    <div class="meta">
+      <header>
+        <span class="bid">5.1</span>
+        <h3>剖切面：横断面看层次关系</h3>
+        <span class="ms">5.0s</span>
+      </header>
+      <p class="say">还有剖切面，可以直接做横断面看层次关系。到这儿为止，是它现在能做的事情。</p>
+      
+      <div class="cols">
+        <div>
+          <h4>手上做什么</h4>
+          <ol class="ops"><li>点右上角「复位」</li><li>停顿 1.8 秒（讲这句）</li><li>打开「剖切面」</li><li>停顿 0.6 秒（讲这句）</li><li>剖切面滑块拖到 <b>0.6</b></li><li>停顿 1.3 秒（讲这句）</li></ol>
+          
+        </div>
+        <div>
+          <h4>机器核对到什么</h4>
+          <ul class="checks">
+        <li class="ok">
+          <i>✓</i>
+          <div><b>裁剪面已挂到所有材质</b><span>95 个材质带裁剪面</span></div>
+        </li>
+        <li class="ok">
+          <i>✓</i>
+          <div><b>平面位置确实随滑块移动（读平面常数）</b><span>constant = -0.604234924316406</span></div>
+        </li></ul>
+        </div>
+      </div>
+      <p class="readout">相机 [4.648,1.521,8.451] ｜ 视点距 9.765 ｜ 可见 骨 29 / 肌 35 / 神经 30 ｜ 选中 left pronator quadratus ｜ 剖切 正向 0.604234924316406 ｜ 悬停 median</p>
+    </div>
+  </article>
+  <article class="beat ">
+    <div class="shot">
+      <a href="frames/5.2.png" target="_blank" title="点开看原始尺寸（1600×1000）">
+        <img src="frames/5.2.png" alt="5.2 反向：看另一半" loading="lazy">
+      </a>
+      <span class="tcbadge">6:25</span>
+    </div>
+    <div class="meta">
+      <header>
+        <span class="bid">5.2</span>
+        <h3>反向：看另一半</h3>
+        <span class="ms">2.6s</span>
+      </header>
+      <p class="say">反向，看另一半。</p>
+      
+      <div class="cols">
+        <div>
+          <h4>手上做什么</h4>
+          <ol class="ops"><li>点「反向」</li><li>停顿 1.2 秒（讲这句）</li></ol>
+          
+        </div>
+        <div>
+          <h4>机器核对到什么</h4>
+          <ul class="checks">
+        <li class="ok">
+          <i>✓</i>
+          <div><b>翻转状态已变</b><span>flip false → true</span></div>
+        </li>
+        <li class="ok">
+          <i>✓</i>
+          <div><b>平面法线真的反了</b><span>法线 [0,1,0] → [0,-1,0]</span></div>
+        </li></ul>
+        </div>
+      </div>
+      <p class="readout">相机 [4.648,1.521,8.451] ｜ 视点距 9.765 ｜ 可见 骨 29 / 肌 35 / 神经 30 ｜ 选中 left pronator quadratus ｜ 剖切 反向 0.604234924316406 ｜ 悬停 median</p>
+    </div>
+  </article>
+  <article class="beat ">
+    <div class="shot">
+      <a href="frames/5.3.png" target="_blank" title="点开看原始尺寸（1600×1000）">
+        <img src="frames/5.3.png" alt="5.3 主动交代边界与解剖变异" loading="lazy">
+      </a>
+      <span class="tcbadge">6:40</span>
+    </div>
+    <div class="meta">
+      <header>
+        <span class="bid">5.3</span>
+        <h3>主动交代边界与解剖变异</h3>
+        <span class="ms">3.1s</span>
+      </header>
+      <p class="say">接下来我说它做不到的。神经已经是公开解剖数据集里的真实几何，不再是示意线了——但粒度比解剖书粗：手背指背支在源数据里是整束，正中神经返支源数据里根本没有、那一段是补的示意。屈肌支持带、前臂骨间膜、三角骨仍然缺；体表那层壳是算出来的，不能拿来量围度。更要紧的是它不体现解剖变异——Martin-Gruber 吻合、副肌、神经走行变异都不在里面。所以它是沟通工具，不是诊断依据；真用到临床上，神经走行必须人工核对。</p>
+      
+      <div class="cols">
+        <div>
+          <h4>手上做什么</h4>
+          <ol class="ops"><li>关闭「剖切面」</li><li>停顿 0.8 秒（讲这句）</li><li>右栏切到「结构」标签</li><li>停顿 0.9 秒（讲这句）</li></ol>
+          
+        </div>
+        <div>
+          <h4>机器核对到什么</h4>
+          <ul class="checks">
+        <li class="ok">
+          <i>✓</i>
+          <div><b>剖切已关闭</b></div>
+        </li>
+        <li class="ok">
+          <i>✓</i>
+          <div><b>结构数回到完整（画面收干净）</b><span>肌 35 / 神经 30 / 体表 1</span></div>
+        </li>
+        <li class="ok">
+          <i>✓</i>
+          <div><b>「待补结构」提示可见（主动把缺口写在界面上）</b><span>.note</span></div>
+        </li></ul>
+        </div>
+      </div>
+      <p class="readout">相机 [4.648,1.521,8.451] ｜ 视点距 9.765 ｜ 可见 骨 29 / 肌 35 / 神经 30 ｜ 选中 left pronator quadratus ｜ 悬停 median</p>
+    </div>
+  </article>
+  <article class="beat ">
+    <div class="shot">
+      <a href="frames/5.4.png" target="_blank" title="点开看原始尺寸（1600×1000）">
+        <img src="frames/5.4.png" alt="5.4 收尾：回到起始画面" loading="lazy">
+      </a>
+      <span class="tcbadge">7:05</span>
+    </div>
+    <div class="meta">
+      <header>
+        <span class="bid">5.4</span>
+        <h3>收尾：回到起始画面</h3>
+        <span class="ms">4.5s</span>
+      </header>
+      <p class="say">回到起始状态。谢谢。</p>
+      
+      <div class="cols">
+        <div>
+          <h4>手上做什么</h4>
+          <ol class="ops"><li>右栏切到「系统」标签</li><li>停顿 0.6 秒（讲这句）</li><li>选中结构「null」</li><li>停顿 0.5 秒（讲这句）</li><li>点右上角「复位」</li><li>停顿 2.0 秒（讲这句）</li></ol>
+          
+        </div>
+        <div>
+          <h4>机器核对到什么</h4>
+          <ul class="checks">
+        <li class="ok">
+          <i>✓</i>
+          <div><b>无选中（收干净）</b></div>
+        </li>
+        <li class="ok">
+          <i>✓</i>
+          <div><b>回到初始机位</b><span>[0,0,0]</span></div>
+        </li>
+        <li class="ok">
+          <i>✓</i>
+          <div><b>剖切 / 隔离 / 剥离均已复位</b><span>clip=false isolate=false peel=0</span></div>
+        </li>
+        <li class="ok">
+          <i>✓</i>
+          <div><b>主面板已回到系统页</b><span>.panel</span></div>
+        </li></ul>
+        </div>
+      </div>
+      <p class="readout">相机 [4.648,1.521,8.451] ｜ 视点距 9.765 ｜ 可见 骨 29 / 肌 35 / 神经 30 ｜ 选中 — ｜ 悬停 median</p>
+    </div>
+  </article>
+  </section>
+
+  <div class="appendix">
+    <h2>附录</h2>
+    <p class="lead">上面每一拍都是可复现的。这一节记两件事：手动演示时的操作对照，以及这套验证怎么原样再跑一遍。</p>
+    <div class="grid2">
+      <div class="panel">
+        <h3>操作速查</h3>
+        <table>
+          <tr><th>要做的事</th><th>怎么做</th></tr>
+          <tr><td>换机位</td><td>右栏「视角」六个方向按钮，或点情景预设让它自己飞过去</td></tr>
+          <tr><td>只看一层</td><td>右栏「系统」里的图层勾选框；看深层不必删掉肌肉，压不透明度即可</td></tr>
+          <tr><td>指名某一根</td><td>指针停在结构上出名称浮标；单击选中，<b>双击聚焦</b>（旋转中心随之搬过去）</td></tr>
+          <tr><td>只留目标</td><td>「孤立模式」——点中的留下，其余淡出</td></tr>
+          <tr><td>由浅入深</td><td>「逐层剥离」按层点，或用「展开」把一层拆成掌侧／背侧单独剥</td></tr>
+          <tr><td>换一套编码</td><td>「肌肉着色」在功能群／神经支配之间切；点图例可整片高亮</td></tr>
+          <tr><td>看横断面</td><td>「剖切面」开关 + 滑块，可「反向」看另一半</td></tr>
+        </table>
+      </div>
+      <div class="panel">
+        <h3>这套验证怎么再跑一遍</h3>
+        <ul class="plain">
+          <li>脚本：<code>_recon/demo/run.cjs</code>，按 24 拍时序真实驱动，每拍截图并读回场景状态。</li>
+          <li>跑法：先起 dev 服务，再 <code>node _recon/demo/run.cjs</code>（可用 <code>DEMO_URL</code> 换地址）。</li>
+          <li>产出：<code>arm-atlas/demo/run.json</code>（每拍状态与核对明细）+ <code>frames/*.png</code>。</li>
+          <li>手册：<code>node _recon/demo/build_runbook.cjs</code> 由上面两个产出重新生成本页。</li>
+          <li>判定口径：不读按钮有没有点动，而是读<b>相机机位、材质不透明度、可见结构数、裁剪面法线与常数</b>——画面真的变了才算过。</li>
+        </ul>
+        <h3 style="margin-top:20px">已知边界（讲稿第五幕已主动交代）</h3>
+        <ul class="plain">
+          <li>神经走行取自公开解剖数据集的<b>真实几何</b>（30 条对象，含分支）；但<b>粒度比解剖书粗</b>——手背指背支在源数据里是整束，正中神经返支源数据里没有、图上是补的示意段。</li>
+          <li>体表是<b>算出来的壳</b>（骨与肌轮廓外扩 3.5 mm），只表达肢体范围，<b>不能用来量围度或皮下厚度</b>；屈肌支持带、前臂骨间膜、三角骨缺。</li>
+          <li>不体现解剖变异（Martin-Gruber 吻合、副肌、神经走行变异均不在内）。</li>
+          <li>定位：沟通工具，<b>不是诊断依据</b>；若要用于临床，神经走行必须人工核对。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    本次运行：2026/9/18 19:11:29　·　http://localhost:5173/　·　24 拍机器全程 92.3s。<br>
+    手册由 <code>run.json</code> 直接生成，页面上每个「✓」都对应那次运行真的读到的数值。
+  </footer>
+</div>
+</body>
+</html>
