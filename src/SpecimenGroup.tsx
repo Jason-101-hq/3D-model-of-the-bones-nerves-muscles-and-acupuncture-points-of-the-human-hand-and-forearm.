@@ -183,7 +183,7 @@ function SpecimenPiece({ piece, opacity }: { piece: Piece; opacity: number }) {
 }
 
 export default function SpecimenGroup() {
-  const gltf = useGLTF('/models/specimen.glb')
+  const gltf = useGLTF(`${import.meta.env.BASE_URL}models/specimen.glb`)
   const st = useAtlas((s) => s.layers.specimen)
   const pieces = useMemo(() => flatten(gltf), [gltf])
 
@@ -199,4 +199,4 @@ export default function SpecimenGroup() {
 }
 
 /** 供图层开关在打开前预取，避免第一次点开时卡一下 */
-export const SPECIMEN_URL = '/models/specimen.glb'
+export const SPECIMEN_URL = `${import.meta.env.BASE_URL}models/specimen.glb`

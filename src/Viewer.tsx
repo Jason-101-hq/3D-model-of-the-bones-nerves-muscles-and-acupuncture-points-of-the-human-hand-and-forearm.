@@ -34,7 +34,7 @@ const ROT: [number, number, number] = [-Math.PI / 2, 0, 0] // 模型 Z-up -> 场
  * 而是由本模型自己的骨与肌轮廓算出来的（生成脚本 `_recon/skin/build_skin.py`）——
  * 顶点已是模型坐标，加载后不需要任何变换，与骨骼共用同一个父级。
  */
-const SKIN_URL = '/models/skin.glb'
+const SKIN_URL = `${import.meta.env.BASE_URL}models/skin.glb`
 
 /** 统一的选中语言：亮青色描边。刻意避开所有群色（红／蓝／粉／灰）以免混淆 */
 const SELECT_COLOR = '#22D3EE'
@@ -573,7 +573,7 @@ function SkinGroup({ planes, peelPlan }: { planes: THREE.Plane[]; peelPlan: Peel
   )
 }
 
-function BoneGroup({ planes }: { planes: THREE.Plane[] }) {  const gltf = useGLTF('/models/bones.glb')
+function BoneGroup({ planes }: { planes: THREE.Plane[] }) {  const gltf = useGLTF(`${import.meta.env.BASE_URL}models/bones.glb`)
   const items = useMemo(
     () => collect(gltf, (n) => (BONE_SET.has(n) ? n : null)),
     [gltf]
@@ -594,7 +594,7 @@ function MuscleGroup({
   planes: THREE.Plane[]
   peelPlan: PeelPlan
 }) {
-  const gltf = useGLTF('/models/muscles.glb', '/draco/')
+  const gltf = useGLTF(`${import.meta.env.BASE_URL}models/muscles.glb`, `${import.meta.env.BASE_URL}draco/`)
   const lookup = useMemo(() => {
     const m = new Map<string, string>()
     for (const [canonical, names] of Object.entries(MUSCLE_MESH_NAME)) {
@@ -663,7 +663,7 @@ function NerveGroup({
    * ⚠️ `useGLTF` 与骨骼、肌肉用的是同一套机制，所以三条加载请求是并行的；
    * 神经这条只有 1.9MB，不会拖慢首屏。
    */
-  const gltf = useGLTF('/models/nerves.glb')
+  const gltf = useGLTF(`${import.meta.env.BASE_URL}models/nerves.glb`)
   const geoms = useMemo(() => nerveRenders(gltf.scene), [gltf.scene])
 
   /** 各条神经的公共中心。剥离时以它为原点向外散开，神经之间才会分开而非同向平移 */
@@ -1349,7 +1349,7 @@ function Scene({
   const peelExpanded = useAtlas((s) => s.peelExpanded)
   const detected = useRef(false)
   const [center, setCenter] = useState<THREE.Vector3 | null>(null)
-  const gltf = useGLTF('/models/bones.glb')
+  const gltf = useGLTF(`${import.meta.env.BASE_URL}models/bones.glb`)
 
   // 剥离步骤表随「展开了哪些大层」变化；展开时一个大层拆成若干子步
   const peelPlan = useMemo(() => planPeel(new Set(peelExpanded)), [peelExpanded])

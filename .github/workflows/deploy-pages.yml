@@ -1,0 +1,67 @@
+name: Deploy to GitHub Pages
+
+# 推到 main 就自动构建并发布；也可以在 Actions 页面手动点一次（workflow_dispatch）
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# 同一时间只允许一个 Pages 发布在跑。
+# 这里刻意用 cancel-in-progress: false —— 取消一次正在进行的 Pages 发布，
+# 容易把线上站点停在半成品状态，宁可让新任务排队等它跑完。
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+# GITHUB_TOKEN 的最小权限：读仓库、写 Pages、拿 OIDC 令牌（deploy-pages 用它换发布凭据）
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      # 用 ci 而不是 install：锁文件里的版本照装，构建结果可复现
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      # vite build 会按 vite.config.ts 里的 base 生成子路径引用，
+      # public/models/*.glb 与 public/draco/* 原样拷进 dist（源码里的模型文件不会被改动）
+      - name: Build
+        run: npm run build
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+        with:
+          # 仓库还没开 Pages 时，这一步会顺手把 Source 设成 GitHub Actions，省得手动去点
+          enablement: true
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

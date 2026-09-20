@@ -23,8 +23,12 @@ import './index.css'
  * （白放的几百 KB）。这里设一次默认值，而不是在每个调用点传 `'/draco/'`：
  * 后者只要以后有人新写一个不带参数的 `useGLTF`，就会静默退回外网 ——
  * 这种回归不报错，只会在别人电脑上悄悄少一层肌肉。
+ *
+ * 路径前面拼 `import.meta.env.BASE_URL`：线上是 GitHub Pages 的子路径
+ * （`/<repo>/draco/`），本地 dev 是 `/draco/`。写死成 `/draco/` 的话，
+ * 部署到 Pages 后解码器同样 404 —— 又回到「肌肉整层静默消失」那条老路上。
  */
-useGLTF.setDecoderPath('/draco/')
+useGLTF.setDecoderPath(`${import.meta.env.BASE_URL}draco/`)
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
