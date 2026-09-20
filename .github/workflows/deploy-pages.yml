@@ -44,11 +44,13 @@ jobs:
       - name: Build
         run: npm run build
 
+      # 只读仓库的 Pages 配置（base_path 等），不负责开通。
+      # 这里刻意不写 `enablement: true`：GITHUB_TOKEN 没有建站权限，
+      # 一写就会以 `Resource not accessible by integration` 硬失败（实测过）。
+      # 仓库的 Pages 必须先由管理员在网页端开一次：
+      #   Settings → Pages → Build and deployment → Source 选 "GitHub Actions"
       - name: Setup Pages
         uses: actions/configure-pages@v5
-        with:
-          # 仓库还没开 Pages 时，这一步会顺手把 Source 设成 GitHub Actions，省得手动去点
-          enablement: true
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
